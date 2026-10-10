@@ -568,10 +568,22 @@ mini-poll { display: block; }
 .verdict{margin-top:.8rem;background:#10142a;border:1px solid #2a3050;border-radius:10px;padding:.7rem .9rem;font-size:.9rem;color:#c6cde3}
 .verdict strong{color:#fac848}
 .anec .report{color:#c6cde3;font-size:.92rem;line-height:1.6;margin:.6rem 0}
+#bgtext{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.bgline{position:absolute;left:-25%;width:150%;transform:rotate(-20deg)}
+.bgtrack{display:inline-block;white-space:nowrap;animation:wmdrift var(--spd,120s) linear infinite}
+.bgline.rev .bgtrack{animation-direction:reverse}
+.bgtrack b{font-weight:900;letter-spacing:.04em;color:transparent;-webkit-text-stroke:1px var(--sc,rgba(250,200,72,.38))}
+.bgtrack i{font-style:normal;color:transparent;-webkit-text-stroke:1px rgba(152,164,192,.22);margin:0 .7em}
+.w1{--sc:rgba(250,200,72,.38)}
+.w2{--sc:rgba(93,230,251,.34)}
+@keyframes wmdrift{to{transform:translateX(-50%)}}
+@media(max-width:900px){ .bgline.mhide{display:none} }
+@media (prefers-reduced-motion:reduce){ .bgtrack{animation:none} }
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
+<div id="bgtext" aria-hidden="true"><div class="bgline" style="top:4%;font-size:6rem;--spd:138s"><div class="bgtrack"><span><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i></span><span aria-hidden="true"><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i></span></div></div><div class="bgline rev" style="top:22%;font-size:3.2rem;--spd:106s"><div class="bgtrack"><span><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i></span><span aria-hidden="true"><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i></span></div></div><div class="bgline" style="top:40%;font-size:7rem;--spd:162s"><div class="bgtrack"><span><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i></span><span aria-hidden="true"><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i></span></div></div><div class="bgline rev mhide" style="top:58%;font-size:2.8rem;--spd:119s"><div class="bgtrack"><span><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i></span><span aria-hidden="true"><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i></span></div></div><div class="bgline mhide" style="top:76%;font-size:6rem;--spd:150s"><div class="bgtrack"><span><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i></span><span aria-hidden="true"><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i></span></div></div><div class="bgline rev mhide" style="top:90%;font-size:3rem;--spd:100s"><div class="bgtrack"><span><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i></span><span aria-hidden="true"><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i><b class="w1">PUSHING</b><i>·</i><b class="w2">P</b><i>·</i></span></div></div></div>
 <svg class="sr-only" aria-hidden="true" focusable="false">
   <defs>
     <linearGradient id="triGrad" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -669,7 +681,7 @@ mini-poll { display: block; }
 <circle cx="70" cy="120" r="16" fill="none" stroke="#fac848" stroke-width="2" class="ringp"/>
         <circle cx="70" cy="120" r="8" fill="#fac848"/>
         <text x="70" y="88" fill="#fac848" font-size="12" font-weight="800" text-anchor="middle">Pre-2015</text>
-        <text x="70" y="162" fill="#a9b1c9" font-size="11" text-anchor="middle">mtDNA: energy genes only?</text>
+        <text x="70" y="162" fill="#a9b1c9" font-size="11" text-anchor="middle">mtDNA: energy<tspan x="70" dy="15">genes only?</tspan></text>
 <circle cx="195" cy="120" r="16" fill="none" stroke="#5de6fb" stroke-width="2" class="ringp"/>
         <circle cx="195" cy="120" r="8" fill="#5de6fb"/>
         <text x="195" y="88" fill="#5de6fb" font-size="12" font-weight="800" text-anchor="middle">2015</text>
@@ -681,11 +693,11 @@ mini-poll { display: block; }
 <circle cx="445" cy="120" r="16" fill="none" stroke="#fac848" stroke-width="2" class="ringp"/>
         <circle cx="445" cy="120" r="8" fill="#fac848"/>
         <text x="445" y="88" fill="#fac848" font-size="12" font-weight="800" text-anchor="middle">2018+</text>
-        <text x="445" y="162" fill="#a9b1c9" font-size="11" text-anchor="middle">Exercise-mimetic hype</text>
+        <text x="445" y="162" fill="#a9b1c9" font-size="11" text-anchor="middle">Exercise-mimetic<tspan x="445" dy="15">hype</tspan></text>
 <circle cx="570" cy="120" r="16" fill="none" stroke="#5de6fb" stroke-width="2" class="ringp"/>
         <circle cx="570" cy="120" r="8" fill="#5de6fb"/>
         <text x="570" y="88" fill="#5de6fb" font-size="12" font-weight="800" text-anchor="middle">Today</text>
-        <text x="570" y="162" fill="#a9b1c9" font-size="11" text-anchor="middle">Animal-only evidence</text>
+        <text x="570" y="162" fill="#a9b1c9" font-size="11" text-anchor="middle">Animal-only<tspan x="570" dy="15">evidence</tspan></text>
       <text x="320" y="208" fill="#7f88a5" font-size="12" text-anchor="middle">A decade from discovery to supplement hype — with no human trials in between.</text>
     </svg>
     <div class="cap">A decade from discovery to supplement hype — with no human trials in between.</div>
