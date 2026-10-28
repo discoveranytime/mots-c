@@ -50,7 +50,7 @@ body{font-family:var(--font);background:var(--bg0);color:var(--ink);
   opacity:0;pointer-events:none;transition:opacity .5s ease,transform .5s ease;
   box-shadow:0 8px 30px rgba(0,0,0,.28)}
 #doneToast.show{opacity:1;transform:translate(-50%,0)}
-##themeToggle{position:fixed;top:12px;right:14px;z-index:70;display:flex;align-items:center;gap:2px;
+#themeToggle{position:fixed;top:12px;right:14px;z-index:70;display:flex;align-items:center;gap:2px;
   border:1px solid var(--line);background:var(--card);border-radius:999px;padding:3px;
   box-shadow:0 4px 18px rgba(0,0,0,.25)}
 #themeToggle .tt-opt{display:flex;align-items:center;gap:.35rem;border:0;cursor:pointer;
@@ -579,6 +579,36 @@ mini-poll { display: block; }
 @keyframes wmdrift{to{transform:translateX(-50%)}}
 @media(max-width:900px){ .bgline.mhide{display:none} }
 @media (prefers-reduced-motion:reduce){ .bgtrack{animation:none} }
+/* ===== additions for the enhanced guide ===== */
+.subhead{font-size:1.4rem;font-weight:800;letter-spacing:-.01em;line-height:1.35;margin:2.6rem 0 1rem;padding-left:.9rem;border-left:3px solid var(--sky)}
+@media(max-width:640px){.subhead{font-size:1.2rem;margin-top:2rem}}
+.tblwrap{overflow-x:auto;margin:1rem 0 1.4rem;border:1px solid var(--line);border-radius:14px}
+.tbl{width:100%;border-collapse:collapse;min-width:560px;font-size:.95rem;line-height:1.55}
+.tbl.wide{min-width:780px}
+.tbl th{text-align:left;padding:.7rem .9rem;background:rgba(255,255,255,.045);color:var(--ink);font-weight:800;border-bottom:1px solid var(--line);white-space:nowrap}
+.tbl td{padding:.65rem .9rem;border-bottom:1px solid var(--line);color:var(--muted);vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl td:first-child{color:var(--ink);font-weight:700}
+[data-theme="light"] .tbl th{background:rgba(15,23,42,.05)}
+.warn{border:1px solid rgba(250,200,72,.45);background:rgba(250,200,72,.07);border-radius:14px;padding:1rem 1.15rem;margin:1.2rem 0}
+.warn strong{color:var(--ink)}
+.evpill{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:.18rem .55rem;border-radius:999px;border:1px solid var(--line);color:var(--muted);margin:0 .4rem .3rem 0;white-space:nowrap}
+.evpill.ev-est{color:#5de6fb;border-color:rgba(93,230,251,.5)}
+.evpill.ev-pre{color:#fac848;border-color:rgba(250,200,72,.5)}
+.evpill.ev-com{color:#a9b1c9}
+.evpill.ev-unk{color:#f87171;border-color:rgba(248,113,113,.5)}
+.kq-q{font-weight:800;font-size:1.08rem;margin:1.4rem 0 .6rem;color:var(--ink)}
+.kq-opts{display:grid;gap:.55rem}
+.kq-opt{width:100%;text-align:left;background:var(--card2);border:1px solid var(--line);color:var(--ink);border-radius:12px;padding:.7rem .95rem;cursor:pointer;font:600 .98rem var(--font);line-height:1.5;transition:border-color .2s ease,background .2s ease}
+.kq-opt:hover:not(:disabled){border-color:rgba(255,255,255,.28)}
+.kq-opt:disabled{opacity:.8;cursor:default}
+.kq-opt.ok{border-color:#22d3ee;background:rgba(34,211,238,.12)}
+.kq-opt.no{border-color:#f87171;background:rgba(248,113,113,.10)}
+.kq-exp{display:none;margin:.6rem 0 1.2rem;padding:.8rem 1rem;border-left:3px solid var(--sky);background:rgba(255,255,255,.03);border-radius:0 12px 12px 0;color:var(--muted)}
+.kq-exp.show{display:block}
+.kq-score{font-weight:800;font-size:1.05rem;margin-top:1.4rem}
+.kq-restart{margin-top:1rem;background:var(--grad);color:#0a0c14;border:0;border-radius:999px;padding:.6rem 1.2rem;font:800 .9rem var(--font);cursor:pointer}
+.kq-restart:hover{filter:brightness(1.06)}
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -607,21 +637,24 @@ mini-poll { display: block; }
 <aside class="toc" aria-label="Chapters">
   <div class="brand">MOTS-c<br><span class="g">the mitochondrial message</span></div>
   <div class="toc-pill" aria-hidden="true"></div>
-  <a href="#ch1"><span class="n">01</span>The Message</a>
-  <a href="#ch2"><span class="n">02</span>The Discovery</a>
-  <a href="#ch3"><span class="n">03</span>The Switch</a>
-  <a href="#ch4"><span class="n">04</span>Evidence Check</a>
-  <a href="#ch5"><span class="n">05</span>What People Say</a>
-  <a href="#ch6"><span class="n">06</span>Risks & Unknowns</a>
-  <a href="#ch7"><span class="n">07</span>Head to Head</a>
-  <a href="#ch8"><span class="n">08</span>Benefits</a>
-  <a href="#ch9"><span class="n">09</span>Who It Suits</a>
-  <a href="#ch10"><span class="n">10</span>Glossary</a>
-  <a href="#ch11"><span class="n">11</span>Takeaways</a>
+  <a href="#ch1"><span class="n">01</span>MOTS-c?</a>
+  <a href="#ch2"><span class="n">02</span>Mechanism</a>
+  <a href="#ch3"><span class="n">03</span>Exercise</a>
+  <a href="#ch4"><span class="n">04</span>Evidence</a>
+  <a href="#ch5"><span class="n">05</span>Experiences</a>
+  <a href="#ch6"><span class="n">06</span>Vs trio</a>
+  <a href="#ch7"><span class="n">07</span>Dosing</a>
+  <a href="#ch8"><span class="n">08</span>Stacking</a>
+  <a href="#ch9"><span class="n">09</span>Reactions</a>
+  <a href="#ch10"><span class="n">10</span>Quality</a>
+  <a href="#ch11"><span class="n">11</span>Safety</a>
+  <a href="#ch12"><span class="n">12</span>Monitoring</a>
+  <a href="#ch13"><span class="n">13</span>FAQ & glossary</a>
+  <a href="#ch14"><span class="n">14</span>Takeaways & quiz</a>
   <div class="mini"><span>Read</span><span id="tocPct">0%</span></div>
   <div class="mini-bar"><i id="tocBar"></i></div>
 </aside>
-<nav class="chapters" aria-label="Chapters"><div class="rail" id="rail"><a href="#ch1">01 · The Message</a><a href="#ch2">02 · Discovery</a><a href="#ch3">03 · The Switch</a><a href="#ch4">04 · Evidence</a><a href="#ch5">05 · Reports</a><a href="#ch6">06 · Risks</a><a href="#ch7">07 · Head to Head</a><a href="#ch8">08 · Benefits</a><a href="#ch9">09 · Who It Suits</a><a href="#ch10">10 · Glossary</a><a href="#ch11">11 · Takeaways</a></div></nav>
+<nav class="chapters" aria-label="Chapters"><div class="rail" id="rail"><a href="#ch1">01 · MOTS-c?</a><a href="#ch2">02 · Mechanism</a><a href="#ch3">03 · Exercise</a><a href="#ch4">04 · Evidence</a><a href="#ch5">05 · Experiences</a><a href="#ch6">06 · Vs trio</a><a href="#ch7">07 · Dosing</a><a href="#ch8">08 · Stacking</a><a href="#ch9">09 · Reactions</a><a href="#ch10">10 · Quality</a><a href="#ch11">11 · Safety</a><a href="#ch12">12 · Monitoring</a><a href="#ch13">13 · FAQ & glossary</a><a href="#ch14">14 · Takeaways & quiz</a></div></nav>
 
 <header class="hero">
   <div class="badge"><span class="dot"></span>Mitochondrial-derived peptide · metabolic research</div>
@@ -642,10 +675,10 @@ mini-poll { display: block; }
 </header>
 
 <main class="wrap">
-<!-- ============ CHAPTER 1 ============ -->
 <section class="chapter" id="ch1">
-  <span class="eyebrow"><span class="n">01</span>The message</span>
-  <h2>What <span class="hl">MOTS-c</span> actually is</h2>
+  <span class="eyebrow"><span class="n">01</span>Origins</span>
+  <h2>What is <span class="hl">MOTS-c</span>?</h2>
+
   <p class="lede">MOTS-c is a <strong>16-amino-acid peptide encoded in mitochondrial DNA</strong> — a message from the cell’s power plants that tunes metabolism toward fat-burning and better sugar control. Discovered in 2015, famous in mice, <strong>untested in people</strong>.</p>
   <div class="diagram reveal">
     <svg viewBox="0 0 640 232" role="img" aria-label="Chain of 16 amino acids representing MOTS-c">
@@ -664,16 +697,12 @@ mini-poll { display: block; }
     <div class="card teal reveal"><h3>A metabolic tuner</h3><p>MOTS-c homes to <strong>skeletal muscle</strong> and flips the AMPK switch — the cell’s <strong>low-fuel alarm</strong> — nudging the body to burn fat and handle sugar better.</p></div>
     <div class="card org reveal"><h3>Exercise in a vial? Not quite</h3><p>The “exercise-mimetic” label comes from <strong>mice</strong>: metabolic benefits resembling training. No human data supports the nickname — or the vial.</p></div>
   </div><div class="plain reveal"><div class="plabel">Plain English</div><p>Your cells’ <strong>power plants</strong> turned out to have a <strong>printing press</strong>: they manufacture a tiny peptide that tells muscles to burn fuel like they’ve been exercised. In mice, the message gets through beautifully. In people, nobody has verified the mailbox exists.</p></div>
-</section>
 <mini-poll slug="mots-c-mini-ch1"
   data-question="Had you heard that mitochondria make signaling peptides?"
   data-answers='[["😮", "No — mind blown"], ["👀", "Heard the name MOTS-c"], ["📖", "Know the basics"], ["🧪", "Follow the research"]]'>
 </mini-poll>
+  <h3 class="subhead">A message hidden in the mitochondria</h3>
 
-<!-- ============ CHAPTER 2 ============ -->
-<section class="chapter" id="ch2">
-  <span class="eyebrow"><span class="n">02</span>The discovery</span>
-  <h2>A message <span class="hl">hidden</span> in the mitochondria</h2>
   <p class="lede">MOTS-c was found by looking where nobody expected a message — inside mitochondrial DNA. The mouse results electrified metabolism research; the <strong>supplement industry electrified itself</strong>.</p>
   <div class="diagram reveal">
     <svg viewBox="0 0 640 220" role="img" aria-label="Timeline of MOTS-c research">
@@ -705,15 +734,10 @@ mini-poll { display: block; }
   <div class="kv reveal"><span class="k t">The mouse results</span><p>In diet-induced obese mice, MOTS-c <strong>improved insulin sensitivity, increased fat burning, and blunted weight gain</strong> — and later-life treatment still helped. Genuinely exciting, genuinely murine.</p></div>
   <div class="kv reveal"><span class="k o">The hype outruns the lab</span><p>Supplement sellers moved faster than science: <strong>“exercise in a bottle”</strong> marketing for a peptide with zero human data. The researchers’ caution didn’t survive the trip to the sales page.</p></div><div class="plain reveal"><div class="plabel">Plain English</div><p>A <strong>hidden message</strong> was found in DNA everyone had already read. In mice it did remarkable things for metabolism — and marketers immediately started selling the mouse results as a human product. The science is ten years old; the human evidence is <strong>zero years old</strong>.</p></div>
 </section>
-<mini-poll slug="mots-c-mini-ch2"
-  data-question="“Exercise mimetic” — fair label or marketing?"
-  data-answers='[["✅", "Fair — mice earned it"], ["🤔", "Premature"], ["🚩", "Pure marketing"], ["📊", "Wait for human trials"]]'>
-</mini-poll>
-
-<!-- ============ CHAPTER 3 ============ -->
-<section class="chapter" id="ch3">
-  <span class="eyebrow"><span class="n">03</span>How it’s supposed to work</span>
+<section class="chapter" id="ch2">
+  <span class="eyebrow"><span class="n">02</span>Mechanism</span>
   <h2>The <span class="hl">metabolic</span> switch</h2>
+
   <p class="lede">MOTS-c’s proposed job: carry a <strong>“burn fuel” order</strong> from mitochondria to muscle via the AMPK pathway — the same pathway exercise activates. Compelling chain, <strong>mouse-built</strong>.</p>
   <div class="diagram reveal">
     <svg viewBox="0 0 640 250" role="img" aria-label="Four-step proposed MOTS-c mechanism">
@@ -860,16 +884,68 @@ mini-poll { display: block; }
 </div><div class="kv reveal"><span class="k s">AMPK: the fuel gauge</span><p><strong>AMPK</strong> is the cell’s low-energy alarm — exercise flips it on too. MOTS-c appears to pull the same lever, which is the entire basis of the “exercise-mimetic” claim.</p></div>
   <div class="kv reveal"><span class="k t">Folate/methionine twist</span><p>MOTS-c also interferes with the <strong>folate–methionine cycle</strong>, shifting cellular metabolism at a deep level. Elegant biochemistry — with unknown long-term consequences.</p></div>
   <div class="kv reveal"><span class="k o">Mice ≠ people, again</span><p>Mouse metabolism runs hotter and faster than ours, and <strong>most metabolic mouse miracles fail in humans</strong>. Every arrow in this chain needs re-proving in people.</p></div><div class="plain reveal"><div class="plabel">Plain English</div><p>The pitch: <strong>power plant → muscle → fuel gauge on → burn mode</strong>. It’s the same lever exercise pulls — which is why the fantasy is so seductive. But a lever that works in a mouse’s metabolism is a <strong>hypothesis</strong> in yours.</p></div>
-</section>
+  <div class="diagram reveal">
+    <svg viewBox="0 0 640 300" role="img" aria-label="Downstream effects of AMPK activation">
+      <text x="320" y="28" fill="#edf0f9" font-size="15" font-weight="800" text-anchor="middle">What AMPK switches on — the downstream branches</text>
+      <g>
+        <rect x="246" y="58" width="148" height="52" rx="26" fill="#151b36" stroke="#e8af1a" stroke-width="2.5"/>
+        <circle cx="320" cy="84" r="10" fill="none" stroke="#e8af1a" stroke-width="2.5" class="mcGlow"/>
+        <text x="320" y="88" fill="#e8af1a" font-size="13" font-weight="800" text-anchor="middle">AMPK ON</text>
+      </g>
+      <g stroke="#7f88a5" stroke-width="2" fill="none">
+        <path d="M270 110 L150 150" stroke-dasharray="6 5" class="flow"/>
+        <path d="M320 110 L320 150" stroke-dasharray="6 5" class="flow"/>
+        <path d="M370 110 L490 150" stroke-dasharray="6 5" class="flow"/>
+      </g>
+      <circle cx="210" cy="130" r="4" fill="#fac848" class="mcFlowS"/>
+      <circle cx="320" cy="130" r="4" fill="#5de6fb" class="mcFlowS d2"/>
+      <circle cx="430" cy="130" r="4" fill="#e8af1a" class="mcFlowS d3"/>
+      <g font-size="12" font-weight="800" text-anchor="middle">
+        <rect x="30" y="150" width="180" height="96" rx="14" fill="#151b36" stroke="#fac848" stroke-width="2"/>
+        <text x="120" y="182" fill="#fac848">GLUT4 MOVES</text>
+        <text x="120" y="202" fill="#a9b1c9" font-size="11" font-weight="600">glucose transporters</text>
+        <text x="120" y="218" fill="#a9b1c9" font-size="11" font-weight="600">go to the cell surface</text>
+        <text x="120" y="234" fill="#5de6fb" font-size="11">glucose in ↑</text>
+        <rect x="230" y="150" width="180" height="96" rx="14" fill="#151b36" stroke="#5de6fb" stroke-width="2"/>
+        <text x="320" y="182" fill="#5de6fb">FAT OXIDATION</text>
+        <text x="320" y="202" fill="#a9b1c9" font-size="11" font-weight="600">burning fat for fuel</text>
+        <text x="320" y="218" fill="#a9b1c9" font-size="11" font-weight="600">rises, storage falls</text>
+        <text x="320" y="234" fill="#fac848" font-size="11">fat burn ↑</text>
+        <rect x="430" y="150" width="180" height="96" rx="14" fill="#151b36" stroke="#e8af1a" stroke-width="2"/>
+        <text x="520" y="182" fill="#e8af1a">NRF2 PROGRAM</text>
+        <text x="520" y="202" fill="#a9b1c9" font-size="11" font-weight="600">stress-defence genes</text>
+        <text x="520" y="218" fill="#a9b1c9" font-size="11" font-weight="600">switch on in the nucleus</text>
+        <text x="520" y="234" fill="#5de6fb" font-size="11">defences ↑</text>
+      </g>
+      <text x="320" y="278" fill="#7f88a5" font-size="12" text-anchor="middle">Proposed — pieced together from mouse and cell studies, not confirmed in people.</text>
+    </svg>
+    <div class="cap">One switch, three branches: glucose uptake, fat burning, and a nuclear stress-defence program. The wiring is plausible and mouse-supported; the human version is unproven.</div>
+  </div>
 <mini-poll slug="mots-c-mini-ch3"
   data-question="Which part of the mechanism is most interesting?"
   data-answers='[["⚡", "The AMPK switch"], ["🏭", "Mitochondria as messenger"], ["🧬", "The folate-cycle twist"], ["📊", "Needs human proof"]]'>
-</mini-poll>
-
-<!-- ============ CHAPTER 4 ============ -->
+</mini-poll></section>
+<section class="chapter" id="ch3">
+  <span class="eyebrow"><span class="n">03</span>Exercise</span>
+  <h2>MOTS-c and <span class="hl">exercise</span></h2>
+  <p class="lede"><span class="evpill ev-pre">Preclinical</span><span class="evpill ev-com">Community reports</span> The “exercise-mimetic” label is the most quoted — and most oversold — phrase in the MOTS-c story. Here is what it actually rests on, and where it stops.</p>
+  <div class="grid3">
+    <div class="card sky reveal"><h3>The label, honestly</h3><p>“Exercise-mimetic” means MOTS-c produced <strong>training-like metabolic changes in mice</strong> — better endurance, better glucose handling — without the mice training. It does not mean it replaces exercise, and it was never shown to do so in people.</p></div>
+    <div class="card teal reveal"><h3>Training adaptations in mice</h3><p>In mouse studies, MOTS-c improved <strong>treadmill endurance and physical capacity</strong>, including in older animals. The proposed route is the same AMPK pathway exercise itself activates — which is why the comparison stuck.</p></div>
+    <div class="card org reveal"><h3>Metabolic flexibility</h3><p>The deeper claim is <strong>metabolic flexibility</strong>: the ability to switch cleanly between burning glucose and burning fat. Mice on MOTS-c switched better. Whether human metabolism follows is untested.</p></div>
+  </div>
+  <div class="kv reveal"><span class="k s">Endogenous MOTS-c rises with exercise</span><p>In healthy human volunteers, <strong>circulating MOTS-c rose during exercise</strong> and stayed elevated afterwards (Reynolds and colleagues, 2021). That is observational evidence about the body’s own peptide — not evidence that injected MOTS-c works as a treatment.</p></div>
+  <div class="kv reveal"><span class="k t">Mice ≠ people, again</span><p>Mouse metabolism runs hotter and faster than ours, and most metabolic mouse miracles fail in humans. Endurance in a mouse is not endurance in a person, and no human performance trial of MOTS-c exists.</p></div>
+  <div class="plain reveal"><div class="plabel">Plain English</div><p>Exercise flips the AMPK switch. MOTS-c appears to flip a similar switch in mice. That makes it <strong>exercise-like in mechanism</strong>, not exercise in a vial — and the gap between those two phrases is the whole story.</p></div>
+  <div class="warn reveal"><strong>Why it matters:</strong> the exercise label is doing marketing work that the science has not earned. If a seller leans on it, they are selling the mouse result as if it were a human one.</div>
+<mini-poll slug="mots-c-mini-ch2"
+  data-question="“Exercise mimetic” — fair label or marketing?"
+  data-answers='[["✅", "Fair — mice earned it"], ["🤔", "Premature"], ["🚩", "Pure marketing"], ["📊", "Wait for human trials"]]'>
+</mini-poll></section>
 <section class="chapter" id="ch4">
-  <span class="eyebrow"><span class="n">04</span>Evidence check</span>
+  <span class="eyebrow"><span class="n">04</span>Evidence</span>
   <h2>What the science <span class="hl">actually</span> supports</h2>
+
   <p class="lede">Consistent mouse wins, a plausible mechanism, and a <strong>human evidence file with nothing in it</strong>. Here’s the honest ledger.</p>
     <div class="ebar"><div class="row"><span class="t">Mouse metabolic studies (obesity, insulin)</span><span class="v">consistent, striking</span></div><div class="track"><div class="fill" style="--w:78%;background:linear-gradient(90deg,#5de6fb,#7eeafb)"></div></div><div class="note">Improved insulin sensitivity and less fat gain across several mouse studies — the core of the field.</div></div>
   <div class="ebar"><div class="row"><span class="t">Cell studies (AMPK activation)</span><span class="v">strong signals</span></div><div class="track"><div class="fill" style="--w:70%;background:linear-gradient(90deg,#fac848,#5de6fb)"></div></div><div class="note">AMPK-pathway activation in muscle cells is well replicated in vitro.</div></div>
@@ -899,82 +975,21 @@ mini-poll { display: block; }
 <li>That any supplement sold online contains what it claims.</li>
 </ul></div>
 </div>
-</section>
+  <h3 class="subhead">What about humans?</h3>
+  <p><span class="evpill ev-pre">Preclinical</span><span class="evpill ev-unk">No therapeutic trial</span> The honest ledger has two lines that are easy to confuse. <strong>Line one:</strong> there is still no published human trial of administered MOTS-c as a treatment — no randomized trial, no dose-finding study, no safety profile. <strong>Line two:</strong> human observational data does exist for the body’s own peptide: in healthy volunteers, circulating MOTS-c rose during exercise and remained elevated afterwards (Reynolds and colleagues, 2021). That shows MOTS-c is an exercise-responsive signal in people. It does not show that injecting it helps anyone — those are different claims, and only the first one is missing.</p>
+  <div class="plain reveal"><div class="plabel">Plain English</div><p>Your body making more of its own MOTS-c when you train is interesting biology. It is not a clinical trial of a MOTS-c product, and it should never be quoted as one.</p></div>
+  <h3 class="subhead">A related compound: CB4211</h3>
+  <p><span class="evpill ev-unk">Not independently verified</span> CB4211 is a <strong>related investigational compound</strong> — a modified MOTS-c analogue developed for metabolic disease — and it is not the same thing as native MOTS-c. Results attributed to CB4211 must not be transferred to MOTS-c, and figures circulating about it in community material have <strong>not been independently verified here</strong>. Treat any CB4211 statistic you meet as unconfirmed until it traces to a primary source.</p>
 <mini-poll slug="mots-c-mini-ch4"
   data-question="Strong mouse data, zero human data — your reaction?"
   data-answers='[["🐭", "Mice are enough to watch"], ["📊", "Humans or it didn’t happen"], ["⏳", "Early days"], ["⚠️", "Supplements are premature"]]'>
-</mini-poll>
-
-<!-- ============ CHAPTER 5 ============ -->
+</mini-poll></section>
 <section class="chapter" id="ch5">
-  <span class="eyebrow"><span class="n">05</span>What people say</span>
-  <h2>Reports from the <span class="hl">wild</span></h2>
-  <p class="lede">Weight-loss and “energy” stories dominate — exactly the outcomes <strong>most vulnerable to placebo, diet changes, and wishful logging</strong>. Stories, not data, each stamped as such.</p>
-  <div class="ulegend reveal"><span class="udot" role="img" aria-label="Unverified anecdote"></span><p><strong>Unverified anecdote</strong> — the pulsing dot marks a paraphrased recurring theme from forums and social media: not verified, not evidence.</p></div><div class="anec-grid">
-    <div class="anec reveal"><div class="anec-head"><h4>The scale victory</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>“Down 8 pounds in a month — diet didn’t change.”</p>
-<p class="report">What people report: a steady downward drift over several weeks, clothes fitting looser, the kind of change that feels real in the mirror. Many describe it kicking in right around the time they also &ldquo;cleaned up&rdquo; their eating — a detail that gets mentioned once and then forgotten. Threads fill with debates about whether the peptide or the newfound discipline did the work, and nobody can separate the two. A few posters admit the effect faded once the novelty wore off and old habits crept back. The stories are vivid and consistent — and every one of them is missing a control group.</p><div class="caveat"><strong>Caveat:</strong> diets always change when people start a new compound; nobody logs perfectly.<br><strong>Pattern:</strong> weight-loss stories with invisible confounders.</div></div>
-    <div class="anec reveal"><div class="anec-head"><h4>The energy feeling</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>“Just feel more ‘on’ — like after a good workout week.”</p>
-<p class="report">What people report: a &ldquo;clean&rdquo; energy without jitters, like the afterglow of a good training block but without the training. Mornings supposedly feel easier; afternoons less heavy. Others in the thread ask whether it&apos;s the peptide or just better sleep from the optimism of trying something new. A handful note the feeling quietly vanished a few weeks in — around the time they stopped posting updates. Subjective energy is the easiest thing to feel and the hardest thing to prove, which is exactly why these reports cluster here.</p><div class="caveat"><strong>Caveat:</strong> subjective energy is the most placebo-prone outcome there is.<br><strong>Pattern:</strong> the exercise-mimetic feeling, self-reported.</div></div>
-    <div class="anec reveal"><div class="anec-head"><h4>The bloodwork brag</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>“Fasting glucose dropped 10 points — labs don’t lie.”</p>
-<p class="report">What people report: before-and-after lab screenshots, fasting glucose down, the occasional A1C nudge in the right direction. Commenters point out that fasting glucose swings day to day and a single pair of snapshots proves little. Several posters mention they&apos;d also started walking daily or cut late-night snacks — confounders wearing lab coats. Debates erupt over units, timing, and what &ldquo;10 points&rdquo; even means without context. Calls for continuous glucose monitor data get lots of upvotes and zero follow-through.</p><div class="caveat"><strong>Caveat:</strong> single lab snapshots bounce around; no baseline controls, no blinding.<br><strong>Pattern:</strong> numbers presented without the noise around them.</div></div>
-    <div class="anec reveal"><div class="anec-head"><h4>The non-responder</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>“Two months, zero change in weight, energy, or labs.”</p>
-<p class="report">What people report: months of use, careful tracking, and nothing — no weight change, no energy shift, no lab movement. These posts get a fraction of the replies the success stories do. Some describe cycling through multiple suppliers before concluding the idea itself might be the problem, not the vial. Others value the honesty precisely because it&apos;s rare — a data point from the silent majority. Threads tend to move on quickly, back to the stories that feel better to read.</p><div class="caveat"><strong>Caveat:</strong> negative reports get buried under success stories.<br><strong>Pattern:</strong> quiet non-response, heavily underreported.</div></div>
-    <div class="anec reveal"><div class="anec-head"><h4>Stacked with everything</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>“MOTS-c + berberine + cardio — shredded.”</p>
-<p class="report">What people report: MOTS-c layered onto berberine, fasting windows, and a new cardio habit — then dramatic results credited mostly to the peptide. The lifestyle overhaul doing the heavy lifting gets a passing mention; the molecule gets the headline. Skeptics note, correctly, that the cardio and diet alone explain everything on display. Isolating one ingredient&apos;s contribution from a five-variable life change is impossible, but that never slows the conclusions. It&apos;s the same pattern in every peptide forum, just with different product names.</p><div class="caveat"><strong>Caveat:</strong> cardio and diet do the shredding; the peptide gets the credit.<br><strong>Pattern:</strong> kitchen-sink protocols, single-ingredient conclusions.</div></div>
-    <div class="anec reveal"><div class="anec-head"><h4>The longevity angle</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>“Taking it for cellular health, not weight — in it for the long game.”</p>
-<p class="report">What people report: taking it not for the mirror but for &ldquo;cellular health&rdquo; — the long game, measured in decades. This framing appeals to people who follow aging research and prefer their hope unfalsifiable. Since the payoff is thirty years out, no bad month can ever disprove it. Some stack it with NAD+ boosters and other longevity compounds into a full anti-aging portfolio. Critics call it the perfect purchase: all promise, zero accountability, forever.</p><div class="caveat"><strong>Caveat:</strong> “long game” benefits are unfalsifiable — nothing could prove them wrong.<br><strong>Pattern:</strong> unfalsifiable wellness framing.</div></div>
-    <div class="anec reveal"><div class="anec-head"><h4>Vial roulette</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>“Second source actually gave me the warm feeling people describe.”</p>
-<p class="report">What people report: the first supplier did nothing; the second brought the &ldquo;warm feeling&rdquo; everyone describes — proof, they say, that sourcing matters. Nobody posts third-party lab results; the warm feeling becomes the assay. Threads debate endlessly whether any vial contains real MOTS-c at all, with no way to settle it. Skeptics point out that warmth and optimism feel remarkably similar from the inside. It&apos;s supply roulette dressed up as dose-finding, and the house always wins.</p><div class="caveat"><strong>Caveat:</strong> unregulated products vary; “warm feelings” aren’t an assay.<br><strong>Pattern:</strong> supply roulette dressed as dose-finding.</div></div>
-    <div class="anec reveal"><div class="anec-head"><h4>The skeptic</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>“It’s a mouse peptide until a human trial says otherwise.”</p>
-<p class="report">What people report: usually a short post citing the actual evidence — mouse studies, no human trials, full stop. It gets accused of negativity by people mid-protocol. Often it&apos;s the only poster referencing primary papers instead of vibes. Every so often someone replies weeks later saying the skepticism held up after they read the literature themselves. It&apos;s the rarest forum species: a take fully aligned with the evidence chapters above, and the least rewarded.</p><div class="caveat"><strong>Caveat:</strong> the most evidence-aligned take in the thread — and the least popular.<br><strong>Pattern:</strong> rare forum sobriety.</div></div>
-  </div><div class="folk-note reveal"><p>MOTS-c forums sell <strong>a feeling and a scale number</strong>, both tangled with diet, training, and hope. The mouse studies are real; the leap from <strong>mouse metabolism to your bathroom scale</strong> is where the story stops being science.</p></div>
-</section>
-<mini-poll slug="mots-c-mini-ch5"
-  data-question="“Exercise mimetic” anecdotes — how do you read them?"
-  data-answers='[["💬", "Encouraging"], ["🧂", "Salt required"], ["🚫", "Placebo-prone"], ["⚖️", "Stories aren’t data"]]'>
-</mini-poll>
+  <span class="eyebrow"><span class="n">05</span>Experiences</span>
+  <h2>Potential benefits and <span class="hl">community experiences</span></h2>
 
-<!-- ============ CHAPTER 6 ============ -->
-<section class="chapter" id="ch6">
-  <span class="eyebrow"><span class="n">06</span>Risks & unknowns</span>
-  <h2>Risks & <span class="hl">unknowns</span></h2>
-  <p class="lede">A metabolic rewiring signal with <strong>no human safety record</strong>, sold without oversight. The risk picture, in three honest boxes.</p>
-  <div class="safety-grid">
-    <div class="scard lvl-known reveal"><span class="level">Observed</span><h4>No human safety data</h4><p><strong>Observed fact:</strong> with zero published human trials, there is <strong>no established safety profile</strong> — no known side effects because nothing has been systematically looked for.</p></div>
-    <div class="scard lvl-known reveal"><span class="level">Observed</span><h4>Unregulated vials</h4><p><strong>Observed fact:</strong> MOTS-c sold online has no quality oversight. Gray-market peptide testing repeatedly finds <strong>impurities and mislabeled content</strong>.</p></div>
-    <div class="scard lvl-theory reveal"><span class="level">Theoretical</span><h4>Deep metabolic levers</h4><p><strong>Theoretical:</strong> MOTS-c rewires the <strong>folate–methionine cycle</strong> — core one-carbon metabolism that touches DNA synthesis. Tugging it chronically is unstudied territory.</p></div>
-    <div class="scard lvl-theory reveal"><span class="level">Theoretical</span><h4>AMPK isn’t a free lunch</h4><p><strong>Theoretical:</strong> chronic AMPK activation affects <strong>heart, appetite, and cell-growth pathways</strong>. Exercise pulses it; a drug would press it constantly — different exposure, different risks.</p></div>
-    <div class="scard lvl-unknown reveal"><span class="level">Unknown</span><h4>Long-term effects</h4><p><strong>Unknown:</strong> what months or years of mitochondrial signaling does to human metabolism is <strong>entirely uncharted</strong>.</p></div>
-    <div class="scard lvl-unknown reveal"><span class="level">Unknown</span><h4>Interactions</h4><p><strong>Unknown:</strong> no data with diabetes drugs, no data in pregnancy, no data in metabolic disease — the populations most likely to try it.</p></div>
-  </div><div class="plain reveal"><div class="plabel">Plain English</div><p>Known: <strong>no human safety data at all</strong> and <strong>unregulated vials</strong>. Theoretical: it pulls <strong>deep metabolic levers</strong> (folate cycle, AMPK) that were never meant to be held down permanently. Unknown: <strong>everything about chronic use</strong>.</p></div>
-</section>
-<mini-poll slug="mots-c-mini-ch6"
-  data-question="Which unknown bothers you most?"
-  data-answers='[["🧪", "Long-term metabolic effects"], ["🏭", "What’s in the vial"], ["⚡", "Chronic AMPK activation"], ["❓", "All of it"]]'>
-</mini-poll>
+  <h3 class="subhead">Potential benefits</h3>
 
-<!-- ============ CHAPTER 7 ============ -->
-
-<section class="chapter" id="ch7">
-<span class="eyebrow"><span class="n">07</span>Head to head</span>
-<h2>MOTS-c <span class="hl">vs the field</span></h2>
-<p class="lede">MOTS-c isn&apos;t the only compound chasing metabolism through the mitochondria. Here&apos;s how it stacks up against the neighbors that actually share its territory — <strong>mitochondrial function, glucose metabolism, and the longevity crowd</strong> — not generic peptide comparisons.</p>
-<div class="grid3">
-<div class="card sky reveal"><h3>MOTS-c vs SS-31</h3><div class="cmp"><span>Mechanism</span><p>MOTS-c is proposed to <strong>signal</strong> through AMPK and shift how cells burn fuel. SS-31 (elamipretide) takes a different job: it binds <strong>cardiolipin</strong> on the inner mitochondrial membrane and shields the power plant from damage.</p></div><div class="cmp"><span>Metabolic target</span><p>MOTS-c aims at <strong>fuel sensing</strong> — glucose handling and fat burning. SS-31 aims at <strong>mitochondrial integrity</strong> — keeping energy output alive under stress or disease.</p></div><div class="cmp"><span>Evidence</span><p>MOTS-c: mouse and cell studies only, no human trials. SS-31: actual <strong>human trials</strong> in heart failure and mitochondrial disease — but they missed key goals, and it is still an investigational drug.</p></div><div class="cmp"><span>Advantages</span><p>SS-31 has real human safety data and a tested delivery concept. MOTS-c has the more striking metabolic story — in mice.</p></div><div class="cmp"><span>Limitations</span><p>SS-31's trials underwhelmed despite the elegant mechanism. MOTS-c has <strong>zero human data</strong> — its advantages are all theoretical.</p></div><div class="verdict"><strong>Plain English:</strong> Two mitochondrial peptides walking opposite directions — one guards the power plant, the other sends it orders.</div></div>
-<div class="card teal reveal"><h3>MOTS-c vs metformin</h3><div class="cmp"><span>Mechanism</span><p>Both converge on <strong>AMPK</strong>. Metformin stresses mitochondria slightly (complex I), which trips the low-energy alarm. MOTS-c is proposed to pull the AMPK lever more directly as a signaling peptide.</p></div><div class="cmp"><span>Metabolic target</span><p>Both target <strong>glucose and insulin sensitivity</strong> — metformin's effect is proven in hundreds of millions of patients; MOTS-c's is proven in mice.</p></div><div class="cmp"><span>Evidence</span><p>Metformin: <strong>decades of human data</strong>, approved for type 2 diabetes, now in longevity trials. MOTS-c: no published human trial of any kind.</p></div><div class="cmp"><span>Advantages</span><p>Metformin is cheap, approved, and deeply understood. MOTS-c is a cleaner, more targeted idea — in theory.</p></div><div class="cmp"><span>Limitations</span><p>Metformin brings GI side effects, B12 depletion, and modest effects. MOTS-c brings <strong>no human evidence at all</strong> — and no safety record.</p></div><div class="verdict"><strong>Plain English:</strong> Metformin is the AMPK drug that survived contact with reality. MOTS-c is the AMPK idea still waiting for its trial.</div></div>
-<div class="card org reveal"><h3>MOTS-c vs GLP-1-based therapies</h3><div class="cmp"><span>Mechanism</span><p>GLP-1 drugs mimic a <strong>gut hormone</strong> — they work through appetite, the brain, and the pancreas. MOTS-c works from the opposite end: a <strong>mitochondrial signal</strong> aimed at muscle fuel sensing.</p></div><div class="cmp"><span>Metabolic target</span><p>GLP-1s: appetite, blood sugar, and body weight — all proven. MOTS-c: cellular energy regulation — proposed, mouse-only.</p></div><div class="cmp"><span>Evidence</span><p>GLP-1s: some of the <strong>largest human trial programs</strong> in medicine, approved and widely used. MOTS-c: nothing in humans.</p></div><div class="cmp"><span>Advantages</span><p>GLP-1s actually work in people, dramatically. MOTS-c's mechanism is <strong>complementary in theory</strong> — different lever, different tissue.</p></div><div class="cmp"><span>Limitations</span><p>GLP-1s mean injections, cost, nausea, and muscle-loss concerns. MOTS-c means <strong>every claim is unverified</strong> in humans.</p></div><div class="verdict"><strong>Plain English:</strong> One conquered human metabolism; the other is a fascinating rumor from mouse muscle.</div></div>
-<div class="card sky reveal"><h3>MOTS-c vs humanin</h3><div class="cmp"><span>Mechanism</span><p>Both are <strong>mitochondrial-derived peptides</strong> — messages from the same power plant. Humanin is mainly <strong>cytoprotective</strong>: it helps cells survive stress. MOTS-c is mainly <strong>metabolic</strong>: it tunes fuel use via AMPK.</p></div><div class="cmp"><span>Metabolic target</span><p>MOTS-c: glucose and fat metabolism. Humanin: cell survival, stress resistance, and aging pathways — with some metabolic overlap.</p></div><div class="cmp"><span>Evidence</span><p>Both are <strong>preclinical</strong>. Humanin has a slightly broader literature on protection against cellular stress; neither has human efficacy data.</p></div><div class="cmp"><span>Advantages</span><p>The siblings validate each other: the idea that mitochondria <strong>broadcast signals</strong> is real biology, not a one-off fluke.</p></div><div class="cmp"><span>Limitations</span><p>Both live in the same evidence basement — <strong>no human trials</strong>, no approved uses, same translational cliff.</p></div><div class="verdict"><strong>Plain English:</strong> Sister messages from the same power plant — one guards the cells, the other tunes the furnace.</div></div>
-<div class="card teal reveal"><h3>MOTS-c vs NAD+ boosters</h3><div class="cmp"><span>Mechanism</span><p>NAD+ boosters (NR, NMN) raise a <strong>coenzyme</strong> cells need for energy metabolism and sirtuin signaling. MOTS-c is a <strong>peptide signal</strong> acting on AMPK. Different tools, same neighborhood: age-related metabolic decline.</p></div><div class="cmp"><span>Metabolic target</span><p>Both aim at the <strong>energy systems that fade with age</strong> — NAD+ through coenzyme supply, MOTS-c through fuel-sensing signals.</p></div><div class="cmp"><span>Evidence</span><p>NAD+ boosters have <strong>human pharmacology data</strong> — they reliably raise NAD+ levels. Whether that improves health outcomes is still unproven. MOTS-c hasn't been tested in people at all.</p></div><div class="cmp"><span>Advantages</span><p>NAD+ boosters have crossed the human-testing line and look reasonably safe short-term. MOTS-c has the cleaner mechanistic story — in mice.</p></div><div class="cmp"><span>Limitations</span><p>Raising NAD+ hasn't clearly translated into better health outcomes. MOTS-c hasn't even taken the first human step.</p></div><div class="verdict"><strong>Plain English:</strong> Two longevity-metabolism bets: one moved the biomarker, neither has moved the outcome that matters.</div></div>
-</div>
-<div class="plain reveal"><div class="plabel">Plain English</div><p>Zoom out and the pattern is stark: <strong>every serious comparator either has human data or is honest about lacking it</strong>. Metformin and the GLP-1s earned their place in people; SS-31 tried and stumbled; humanin and the NAD+ boosters are still proving themselves. MOTS-c has the most exciting mouse file of the bunch — and the <strong>thinnest human file, because there isn&apos;t one</strong>. That&apos;s the whole comparison in one sentence.</p></div>
-<mini-poll slug="mots-c-mini-ch7"
-  data-question="Which comparison is most useful to you?"
-  data-answers='[["🛡️", "SS-31"], ["💊", "Metformin"], ["💉", "GLP-1 therapies"], ["🧬", "Humanin"]]'>
-</mini-poll>
-</section>
-<section class="chapter" id="ch8">
-  <span class="eyebrow"><span class="n">08</span>Benefits</span>
-  <h2>Potential <span class="hl">benefits</span></h2>
   <p class="lede">The honest version of this chapter is short. MOTS-c has <strong>no established human benefits at all</strong> &mdash; the tiers below exist so that fact is impossible to miss.</p>
   <div class="tier-grid">
     <div class="tier est reveal">
@@ -1004,14 +1019,343 @@ mini-poll { display: block; }
       </ul>
     </div>
   </div>
-</section>
 <mini-poll slug="mots-c-mini-benefits"
   data-question="The &#39;benefits&#39; case for MOTS-c rests on&#8230;"
   data-answers='[["&#x1F42D;", "Mouse metabolism studies"], ["&#x26A1;", "The AMPK mechanism"], ["&#x1F4AC;", "Forum anecdotes"], ["&#x1F6AB;", "Nothing in humans yet"]]'>
 </mini-poll>
+  <h3 class="subhead">Reports from the wild</h3>
+
+  <p class="lede">Weight-loss and “energy” stories dominate — exactly the outcomes <strong>most vulnerable to placebo, diet changes, and wishful logging</strong>. Stories, not data, each stamped as such.</p>
+  <div class="ulegend reveal"><span class="udot" role="img" aria-label="Unverified anecdote"></span><p><strong>Unverified anecdote</strong> — the pulsing dot marks a paraphrased recurring theme from forums and social media: not verified, not evidence.</p></div><div class="anec-grid">
+    <div class="anec reveal"><div class="anec-head"><h4>The scale victory</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>“Down 8 pounds in a month — diet didn’t change.”</p>
+<p class="report">What people report: a steady downward drift over several weeks, clothes fitting looser, the kind of change that feels real in the mirror. Many describe it kicking in right around the time they also &ldquo;cleaned up&rdquo; their eating — a detail that gets mentioned once and then forgotten. Threads fill with debates about whether the peptide or the newfound discipline did the work, and nobody can separate the two. A few posters admit the effect faded once the novelty wore off and old habits crept back. The stories are vivid and consistent — and every one of them is missing a control group.</p><div class="caveat"><strong>Caveat:</strong> diets always change when people start a new compound; nobody logs perfectly.<br><strong>Pattern:</strong> weight-loss stories with invisible confounders.</div></div>
+    <div class="anec reveal"><div class="anec-head"><h4>The energy feeling</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>“Just feel more ‘on’ — like after a good workout week.”</p>
+<p class="report">What people report: a &ldquo;clean&rdquo; energy without jitters, like the afterglow of a good training block but without the training. Mornings supposedly feel easier; afternoons less heavy. Others in the thread ask whether it&apos;s the peptide or just better sleep from the optimism of trying something new. A handful note the feeling quietly vanished a few weeks in — around the time they stopped posting updates. Subjective energy is the easiest thing to feel and the hardest thing to prove, which is exactly why these reports cluster here.</p><div class="caveat"><strong>Caveat:</strong> subjective energy is the most placebo-prone outcome there is.<br><strong>Pattern:</strong> the exercise-mimetic feeling, self-reported.</div></div>
+    <div class="anec reveal"><div class="anec-head"><h4>The bloodwork brag</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>“Fasting glucose dropped 10 points — labs don’t lie.”</p>
+<p class="report">What people report: before-and-after lab screenshots, fasting glucose down, the occasional A1C nudge in the right direction. Commenters point out that fasting glucose swings day to day and a single pair of snapshots proves little. Several posters mention they&apos;d also started walking daily or cut late-night snacks — confounders wearing lab coats. Debates erupt over units, timing, and what &ldquo;10 points&rdquo; even means without context. Calls for continuous glucose monitor data get lots of upvotes and zero follow-through.</p><div class="caveat"><strong>Caveat:</strong> single lab snapshots bounce around; no baseline controls, no blinding.<br><strong>Pattern:</strong> numbers presented without the noise around them.</div></div>
+    <div class="anec reveal"><div class="anec-head"><h4>The non-responder</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>“Two months, zero change in weight, energy, or labs.”</p>
+<p class="report">What people report: months of use, careful tracking, and nothing — no weight change, no energy shift, no lab movement. These posts get a fraction of the replies the success stories do. Some describe cycling through multiple suppliers before concluding the idea itself might be the problem, not the vial. Others value the honesty precisely because it&apos;s rare — a data point from the silent majority. Threads tend to move on quickly, back to the stories that feel better to read.</p><div class="caveat"><strong>Caveat:</strong> negative reports get buried under success stories.<br><strong>Pattern:</strong> quiet non-response, heavily underreported.</div></div>
+    <div class="anec reveal"><div class="anec-head"><h4>Stacked with everything</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>“MOTS-c + berberine + cardio — shredded.”</p>
+<p class="report">What people report: MOTS-c layered onto berberine, fasting windows, and a new cardio habit — then dramatic results credited mostly to the peptide. The lifestyle overhaul doing the heavy lifting gets a passing mention; the molecule gets the headline. Skeptics note, correctly, that the cardio and diet alone explain everything on display. Isolating one ingredient&apos;s contribution from a five-variable life change is impossible, but that never slows the conclusions. It&apos;s the same pattern in every peptide forum, just with different product names.</p><div class="caveat"><strong>Caveat:</strong> cardio and diet do the shredding; the peptide gets the credit.<br><strong>Pattern:</strong> kitchen-sink protocols, single-ingredient conclusions.</div></div>
+    <div class="anec reveal"><div class="anec-head"><h4>The longevity angle</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>“Taking it for cellular health, not weight — in it for the long game.”</p>
+<p class="report">What people report: taking it not for the mirror but for &ldquo;cellular health&rdquo; — the long game, measured in decades. This framing appeals to people who follow aging research and prefer their hope unfalsifiable. Since the payoff is thirty years out, no bad month can ever disprove it. Some stack it with NAD+ boosters and other longevity compounds into a full anti-aging portfolio. Critics call it the perfect purchase: all promise, zero accountability, forever.</p><div class="caveat"><strong>Caveat:</strong> “long game” benefits are unfalsifiable — nothing could prove them wrong.<br><strong>Pattern:</strong> unfalsifiable wellness framing.</div></div>
+    <div class="anec reveal"><div class="anec-head"><h4>Vial roulette</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>“Second source actually gave me the warm feeling people describe.”</p>
+<p class="report">What people report: the first supplier did nothing; the second brought the &ldquo;warm feeling&rdquo; everyone describes — proof, they say, that sourcing matters. Nobody posts third-party lab results; the warm feeling becomes the assay. Threads debate endlessly whether any vial contains real MOTS-c at all, with no way to settle it. Skeptics point out that warmth and optimism feel remarkably similar from the inside. It&apos;s supply roulette dressed up as dose-finding, and the house always wins.</p><div class="caveat"><strong>Caveat:</strong> unregulated products vary; “warm feelings” aren’t an assay.<br><strong>Pattern:</strong> supply roulette dressed as dose-finding.</div></div>
+    <div class="anec reveal"><div class="anec-head"><h4>The skeptic</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>“It’s a mouse peptide until a human trial says otherwise.”</p>
+<p class="report">What people report: usually a short post citing the actual evidence — mouse studies, no human trials, full stop. It gets accused of negativity by people mid-protocol. Often it&apos;s the only poster referencing primary papers instead of vibes. Every so often someone replies weeks later saying the skepticism held up after they read the literature themselves. It&apos;s the rarest forum species: a take fully aligned with the evidence chapters above, and the least rewarded.</p><div class="caveat"><strong>Caveat:</strong> the most evidence-aligned take in the thread — and the least popular.<br><strong>Pattern:</strong> rare forum sobriety.</div></div>
+  </div><div class="folk-note reveal"><p>MOTS-c forums sell <strong>a feeling and a scale number</strong>, both tangled with diet, training, and hope. The mouse studies are real; the leap from <strong>mouse metabolism to your bathroom scale</strong> is where the story stops being science.</p></div>
+<mini-poll slug="mots-c-mini-ch5"
+  data-question="“Exercise mimetic” anecdotes — how do you read them?"
+  data-answers='[["💬", "Encouraging"], ["🧂", "Salt required"], ["🚫", "Placebo-prone"], ["⚖️", "Stories aren’t data"]]'>
+</mini-poll></section>
+<section class="chapter" id="ch6">
+  <span class="eyebrow"><span class="n">06</span>Head to head</span>
+  <h2>MOTS-c vs. <span class="hl">SS-31 vs. NAD+</span></h2>
+<p class="lede">MOTS-c isn&apos;t the only compound chasing metabolism through the mitochondria. Here&apos;s how it stacks up against the neighbors that actually share its territory — <strong>mitochondrial function, glucose metabolism, and the longevity crowd</strong> — not generic peptide comparisons.</p>  <h3 class="subhead">Three approaches, three jobs</h3>
+  <p>The comparison below uses a working analogy. Analogies are useful for orientation and dangerous for conclusions — so the limits of this one come first, and the table second.</p>
+  <div class="kv reveal"><span class="k s">SS-31 — The Mechanic</span><p>Studied for its interactions with <strong>mitochondrial membranes and cardiolipin</strong>, the lipid that holds the inner membrane’s machinery together. The mechanic does not send orders; it keeps the workshop in repair.</p></div>
+  <div class="kv reveal"><span class="k t">NAD+ — The Fuel System</span><p>A <strong>coenzyme involved in redox reactions, cellular energy metabolism, and signaling</strong>. The fuel system does not decide where the vehicle goes; it determines whether the chemistry of going is possible at all.</p></div>
+  <div class="kv reveal"><span class="k o">MOTS-c — The Supercharger</span><p>A <strong>mitochondrial-derived peptide investigated for metabolic adaptation and stress-response pathways</strong>. The supercharger does not fix the engine or supply the fuel; it sends a signal that changes how the engine runs.</p></div>
+  <div class="warn reveal"><strong>Where the analogy breaks:</strong> a mechanic, a fuel system, and a supercharger are parts of one machine that was designed to work together. These three compounds were not designed together, have never been tested together in people, and act through pathways that overlap in ways the analogy hides. Do not let a tidy metaphor do the work of evidence.</div>
+    <div class="diagram reveal">
+    <svg viewBox="0 0 640 330" role="img" aria-label="Three mitochondrial approaches compared">
+      <text x="320" y="28" fill="#edf0f9" font-size="15" font-weight="800" text-anchor="middle">Three approaches, three jobs</text>
+      <g font-size="12" font-weight="800" text-anchor="middle">
+        <rect x="30" y="56" width="180" height="118" rx="14" fill="#151b36" stroke="#fac848" stroke-width="2"/>
+        <circle cx="120" cy="92" r="16" fill="none" stroke="#fac848" stroke-width="2.5" class="mcPulse"/>
+        <text x="120" y="97" fill="#fac848" font-size="11">🔧</text>
+        <text x="120" y="130" fill="#fac848">SS-31 · THE MECHANIC</text>
+        <text x="120" y="150" fill="#a9b1c9" font-size="11" font-weight="600">works on the membrane</text>
+        <text x="120" y="166" fill="#a9b1c9" font-size="11" font-weight="600">and cardiolipin</text>
+        <rect x="230" y="56" width="180" height="118" rx="14" fill="#151b36" stroke="#5de6fb" stroke-width="2"/>
+        <circle cx="320" cy="92" r="16" fill="none" stroke="#5de6fb" stroke-width="2.5" class="mcPulse"/>
+        <text x="320" y="97" fill="#5de6fb" font-size="11">⛽</text>
+        <text x="320" y="130" fill="#5de6fb">NAD+ · THE FUEL SYSTEM</text>
+        <text x="320" y="150" fill="#a9b1c9" font-size="11" font-weight="600">coenzyme for redox and</text>
+        <text x="320" y="166" fill="#a9b1c9" font-size="11" font-weight="600">energy metabolism</text>
+        <rect x="430" y="56" width="180" height="118" rx="14" fill="#151b36" stroke="#e8af1a" stroke-width="2"/>
+        <circle cx="520" cy="92" r="16" fill="none" stroke="#e8af1a" stroke-width="2.5" class="mcPulse"/>
+        <text x="520" y="97" fill="#e8af1a" font-size="11">⚡</text>
+        <text x="520" y="130" fill="#e8af1a">MOTS-c · SUPERCHARGER</text>
+        <text x="520" y="150" fill="#a9b1c9" font-size="11" font-weight="600">peptide signal for</text>
+        <text x="520" y="166" fill="#a9b1c9" font-size="11" font-weight="600">metabolic adaptation</text>
+      </g>
+      <g stroke="#7f88a5" stroke-width="2" fill="none">
+        <path d="M120 174 L260 218" stroke-dasharray="6 5" class="flow"/>
+        <path d="M320 174 L320 218" stroke-dasharray="6 5" class="flow"/>
+        <path d="M520 174 L380 218" stroke-dasharray="6 5" class="flow"/>
+      </g>
+      <circle cx="190" cy="196" r="4" fill="#fac848" class="mcFlowS"/>
+      <circle cx="320" cy="196" r="4" fill="#5de6fb" class="mcFlowS d2"/>
+      <circle cx="450" cy="196" r="4" fill="#e8af1a" class="mcFlowS d3"/>
+      <rect x="180" y="218" width="280" height="52" rx="26" fill="#151b36" stroke="#5de6fb" stroke-width="2"/>
+      <text x="320" y="238" fill="#5de6fb" font-size="12" font-weight="800" text-anchor="middle">MITOCHONDRIAL ENERGY &amp; METABOLISM</text>
+      <text x="320" y="256" fill="#a9b1c9" font-size="11" font-weight="600" text-anchor="middle">three different doors into the same building</text>
+      <text x="320" y="306" fill="#7f88a5" font-size="12" text-anchor="middle">An analogy, not a finding — the three mechanisms differ, and none is proven in healthy people.</text>
+    </svg>
+    <div class="cap">The mechanic fixes the structure, the fuel system feeds the chemistry, the supercharger sends a signal. Same building, three different doors — and combining them is a theory, not a result.</div>
+  </div>
+
+  <div class="tblwrap reveal"><table class="tbl wide">
+    <thead><tr><th></th><th>SS-31</th><th>NAD+</th><th>MOTS-c</th></tr></thead>
+    <tbody>
+      <tr><td>What it is</td><td>A small peptide studied for mitochondrial membrane interactions</td><td>A coenzyme central to redox reactions and energy metabolism</td><td>A 16-amino-acid peptide encoded in mitochondrial DNA</td></tr>
+      <tr><td>Primary mechanism</td><td>Binds cardiolipin; supports inner membrane structure and electron transport</td><td>Carries electrons in metabolic reactions; substrate for signaling enzymes</td><td>Signals via AMPK and nuclear stress-response programs</td></tr>
+      <tr><td>What research has investigated</td><td>Mitochondrial dysfunction, heart and kidney models, aging</td><td>Aging, metabolic disease, neurodegeneration; NAD+ boosters (NR, NMN) widely studied</td><td>Metabolic homeostasis, insulin sensitivity, exercise adaptation — mostly in mice</td></tr>
+      <tr><td>Level of human clinical evidence</td><td>Early-stage clinical research; no established therapeutic use</td><td>Human data for NAD+ precursors exists; no established therapeutic use for the boosters as such</td><td>No published human therapeutic trial</td></tr>
+      <tr><td>Potential benefits under investigation</td><td>Mitochondrial function in disease models</td><td>Metabolic and age-related outcomes</td><td>Glucose regulation, fat metabolism, endurance — all unproven in people</td></tr>
+      <tr><td>Major uncertainties and limits</td><td>Long-term safety unknown; benefit in healthy people unproven</td><td>Whether raising NAD+ levels translates to clinical benefit; precursor differences</td><td>Entire human picture missing; unregulated supply; mechanism partly inferred</td></tr>
+    </tbody>
+  </table></div>
+  <p class="reveal"><strong>The theory behind combining them:</strong> if one compound supports the membrane, another supplies the coenzyme, and a third sends the metabolic signal, the combination might cover more of the system than any one alone. That is a coherent theory — and it is all it is. No human study has tested any MOTS-c combination, and overlapping pathways can interfere as easily as they can reinforce.</p>
+
+  <h3 class="subhead">MOTS-c vs the wider field</h3>
+
+<div class="grid3">
+<div class="card sky reveal"><h3>MOTS-c vs SS-31</h3><div class="cmp"><span>Mechanism</span><p>MOTS-c is proposed to <strong>signal</strong> through AMPK and shift how cells burn fuel. SS-31 (elamipretide) takes a different job: it binds <strong>cardiolipin</strong> on the inner mitochondrial membrane and shields the power plant from damage.</p></div><div class="cmp"><span>Metabolic target</span><p>MOTS-c aims at <strong>fuel sensing</strong> — glucose handling and fat burning. SS-31 aims at <strong>mitochondrial integrity</strong> — keeping energy output alive under stress or disease.</p></div><div class="cmp"><span>Evidence</span><p>MOTS-c: mouse and cell studies only, no human trials. SS-31: actual <strong>human trials</strong> in heart failure and mitochondrial disease — but they missed key goals, and it is still an investigational drug.</p></div><div class="cmp"><span>Advantages</span><p>SS-31 has real human safety data and a tested delivery concept. MOTS-c has the more striking metabolic story — in mice.</p></div><div class="cmp"><span>Limitations</span><p>SS-31's trials underwhelmed despite the elegant mechanism. MOTS-c has <strong>zero human data</strong> — its advantages are all theoretical.</p></div><div class="verdict"><strong>Plain English:</strong> Two mitochondrial peptides walking opposite directions — one guards the power plant, the other sends it orders.</div></div>
+<div class="card teal reveal"><h3>MOTS-c vs metformin</h3><div class="cmp"><span>Mechanism</span><p>Both converge on <strong>AMPK</strong>. Metformin stresses mitochondria slightly (complex I), which trips the low-energy alarm. MOTS-c is proposed to pull the AMPK lever more directly as a signaling peptide.</p></div><div class="cmp"><span>Metabolic target</span><p>Both target <strong>glucose and insulin sensitivity</strong> — metformin's effect is proven in hundreds of millions of patients; MOTS-c's is proven in mice.</p></div><div class="cmp"><span>Evidence</span><p>Metformin: <strong>decades of human data</strong>, approved for type 2 diabetes, now in longevity trials. MOTS-c: no published human trial of any kind.</p></div><div class="cmp"><span>Advantages</span><p>Metformin is cheap, approved, and deeply understood. MOTS-c is a cleaner, more targeted idea — in theory.</p></div><div class="cmp"><span>Limitations</span><p>Metformin brings GI side effects, B12 depletion, and modest effects. MOTS-c brings <strong>no human evidence at all</strong> — and no safety record.</p></div><div class="verdict"><strong>Plain English:</strong> Metformin is the AMPK drug that survived contact with reality. MOTS-c is the AMPK idea still waiting for its trial.</div></div>
+<div class="card org reveal"><h3>MOTS-c vs GLP-1-based therapies</h3><div class="cmp"><span>Mechanism</span><p>GLP-1 drugs mimic a <strong>gut hormone</strong> — they work through appetite, the brain, and the pancreas. MOTS-c works from the opposite end: a <strong>mitochondrial signal</strong> aimed at muscle fuel sensing.</p></div><div class="cmp"><span>Metabolic target</span><p>GLP-1s: appetite, blood sugar, and body weight — all proven. MOTS-c: cellular energy regulation — proposed, mouse-only.</p></div><div class="cmp"><span>Evidence</span><p>GLP-1s: some of the <strong>largest human trial programs</strong> in medicine, approved and widely used. MOTS-c: nothing in humans.</p></div><div class="cmp"><span>Advantages</span><p>GLP-1s actually work in people, dramatically. MOTS-c's mechanism is <strong>complementary in theory</strong> — different lever, different tissue.</p></div><div class="cmp"><span>Limitations</span><p>GLP-1s mean injections, cost, nausea, and muscle-loss concerns. MOTS-c means <strong>every claim is unverified</strong> in humans.</p></div><div class="verdict"><strong>Plain English:</strong> One conquered human metabolism; the other is a fascinating rumor from mouse muscle.</div></div>
+<div class="card sky reveal"><h3>MOTS-c vs humanin</h3><div class="cmp"><span>Mechanism</span><p>Both are <strong>mitochondrial-derived peptides</strong> — messages from the same power plant. Humanin is mainly <strong>cytoprotective</strong>: it helps cells survive stress. MOTS-c is mainly <strong>metabolic</strong>: it tunes fuel use via AMPK.</p></div><div class="cmp"><span>Metabolic target</span><p>MOTS-c: glucose and fat metabolism. Humanin: cell survival, stress resistance, and aging pathways — with some metabolic overlap.</p></div><div class="cmp"><span>Evidence</span><p>Both are <strong>preclinical</strong>. Humanin has a slightly broader literature on protection against cellular stress; neither has human efficacy data.</p></div><div class="cmp"><span>Advantages</span><p>The siblings validate each other: the idea that mitochondria <strong>broadcast signals</strong> is real biology, not a one-off fluke.</p></div><div class="cmp"><span>Limitations</span><p>Both live in the same evidence basement — <strong>no human trials</strong>, no approved uses, same translational cliff.</p></div><div class="verdict"><strong>Plain English:</strong> Sister messages from the same power plant — one guards the cells, the other tunes the furnace.</div></div>
+<div class="card teal reveal"><h3>MOTS-c vs NAD+ boosters</h3><div class="cmp"><span>Mechanism</span><p>NAD+ boosters (NR, NMN) raise a <strong>coenzyme</strong> cells need for energy metabolism and sirtuin signaling. MOTS-c is a <strong>peptide signal</strong> acting on AMPK. Different tools, same neighborhood: age-related metabolic decline.</p></div><div class="cmp"><span>Metabolic target</span><p>Both aim at the <strong>energy systems that fade with age</strong> — NAD+ through coenzyme supply, MOTS-c through fuel-sensing signals.</p></div><div class="cmp"><span>Evidence</span><p>NAD+ boosters have <strong>human pharmacology data</strong> — they reliably raise NAD+ levels. Whether that improves health outcomes is still unproven. MOTS-c hasn't been tested in people at all.</p></div><div class="cmp"><span>Advantages</span><p>NAD+ boosters have crossed the human-testing line and look reasonably safe short-term. MOTS-c has the cleaner mechanistic story — in mice.</p></div><div class="cmp"><span>Limitations</span><p>Raising NAD+ hasn't clearly translated into better health outcomes. MOTS-c hasn't even taken the first human step.</p></div><div class="verdict"><strong>Plain English:</strong> Two longevity-metabolism bets: one moved the biomarker, neither has moved the outcome that matters.</div></div>
+</div>
+<div class="plain reveal"><div class="plabel">Plain English</div><p>Zoom out and the pattern is stark: <strong>every serious comparator either has human data or is honest about lacking it</strong>. Metformin and the GLP-1s earned their place in people; SS-31 tried and stumbled; humanin and the NAD+ boosters are still proving themselves. MOTS-c has the most exciting mouse file of the bunch — and the <strong>thinnest human file, because there isn&apos;t one</strong>. That&apos;s the whole comparison in one sentence.</p></div>
+
+<mini-poll slug="mots-c-mini-ch7"
+  data-question="Which comparison is most useful to you?"
+  data-answers='[["🛡️", "SS-31"], ["💊", "Metformin"], ["💉", "GLP-1 therapies"], ["🧬", "Humanin"]]'>
+</mini-poll></section>
+<section class="chapter" id="ch7">
+  <span class="eyebrow"><span class="n">07</span>Dosing</span>
+  <h2>Community dosing, <span class="hl">cycling &amp; reconstitution</span></h2>
+  <p class="lede"><span class="evpill ev-com">Community reports</span><span class="evpill ev-unk">Unknown safety</span> This chapter reports what the peptide community says it does — and draws a hard line between those reports and anything clinically validated. <strong>Nothing here is a dose recommendation, and nothing here is an instruction to prepare or inject anything.</strong></p>
+  <div class="warn reveal"><strong>Read this first:</strong> community protocols are anecdotes that have been repeated until they look like standards. They have no dose-finding trials, no safety data, and no quality control behind them. A widely repeated amount is still an unvalidated amount.</div>
+  <h3 class="subhead">Community-reported weekly protocols</h3>
+  <p>The reference material reports the following weekly amounts. Where a frequency is not separately specified in the reference, the table says so rather than filling the gap.</p>
+  <div class="tblwrap reveal"><table class="tbl">
+    <thead><tr><th>Protocol category</th><th>Reported weekly amount</th><th>Reported frequency</th></tr></thead>
+    <tbody>
+      <tr><td>Standard</td><td>5–10 mg</td><td>3 times weekly</td></tr>
+      <tr><td>Training performance</td><td>5–10 mg</td><td>Not separately specified</td></tr>
+      <tr><td>Insulin resistance</td><td>10–15 mg</td><td>Not separately specified</td></tr>
+      <tr><td>Longevity / wellness</td><td>5–10 mg</td><td>Not separately specified</td></tr>
+    </tbody>
+  </table></div>
+  <p class="reveal">The reference describes <strong>4–8-week cycles followed by similar breaks</strong>, with <strong>morning, fasted, or pre-workout timing</strong> discussed anecdotally. None of that timing or cycling has been validated; cycle lengths in community reports appear to be borrowed from other peptides, not derived from MOTS-c data.</p>
+  <h3 class="subhead">Why these cannot be called established doses</h3>
+  <div class="grid3">
+    <div class="card sky reveal"><h3>No dose-finding</h3><p>An established dose comes from trials that test several amounts and measure benefit against harm. MOTS-c has <strong>no human trials at all</strong>, so no amount has ever been weighed that way.</p></div>
+    <div class="card teal reveal"><h3>No safety window</h3><p>Without human data there is no known <strong>minimum effective amount, maximum tolerated amount, or long-term risk</strong> — the three numbers that make a dose a dose rather than a guess.</p></div>
+    <div class="card org reveal"><h3>Reports ≠ results</h3><p>Community amounts cluster around round numbers (5, 10, 15 mg) because round numbers spread easily, not because they were measured. <strong>Popularity is not evidence.</strong></p></div>
+  </div>
+  <h3 class="subhead">Units, plainly: mg, mcg, mL, and U-100</h3>
+  <p>Most dosing confusion is unit confusion. Four units, four different things:</p>
+  <div class="kv reveal"><span class="k s">Milligrams (mg) and micrograms (mcg)</span><p>Both measure <strong>how much peptide</strong>. 1 mg = 1,000 mcg. A “5 mg” amount and a “5,000 mcg” amount are the same amount written two ways.</p></div>
+  <div class="kv reveal"><span class="k t">Milliliters (mL)</span><p>Milliliters measure <strong>how much liquid</strong>, not how much peptide. The peptide amount in a milliliter depends entirely on the concentration — which is why the next section matters.</p></div>
+  <div class="kv reveal"><span class="k o">U-100 syringe units</span><p>On a U-100 insulin syringe, <strong>100 units = 1 mL</strong>, so 10 units = 0.1 mL. Units are a volume marking, not a peptide amount: at 5 mg/mL, 10 units (0.1 mL) corresponds to 0.5 mg — but at a different concentration, the same 10 units would mean a different amount.</p></div>
+  <h3 class="subhead">Reconstitution mathematics</h3>
+  <p>“Reconstitution” is the term for dissolving a lyophilized (freeze-dried) peptide in liquid. The reference gives these examples, and the arithmetic below follows from them:</p>
+  <div class="tblwrap reveal"><table class="tbl">
+    <thead><tr><th>Reference example</th><th>Nominal concentration</th></tr></thead>
+    <tbody>
+      <tr><td>5 mg in 1 mL</td><td>5 mg/mL</td></tr>
+      <tr><td>10 mg in 2 mL</td><td>5 mg/mL</td></tr>
+    </tbody>
+  </table></div>
+  <p class="reveal">At a nominal concentration of 5 mg/mL, the mathematical equivalents are:</p>
+  <div class="tblwrap reveal"><table class="tbl">
+    <thead><tr><th>Volume</th><th>Peptide amount</th></tr></thead>
+    <tbody>
+      <tr><td>0.1 mL</td><td>0.5 mg</td></tr>
+      <tr><td>0.2 mL</td><td>1 mg</td></tr>
+      <tr><td>0.4 mL</td><td>2 mg</td></tr>
+    </tbody>
+  </table></div>
+  <p class="reveal"><strong>These are concentration calculations, not instructions to prepare or inject an experimental product.</strong></p>
+    <div class="diagram reveal">
+    <svg viewBox="0 0 640 250" role="img" aria-label="Concentration equivalence diagram">
+      <text x="320" y="28" fill="#edf0f9" font-size="15" font-weight="800" text-anchor="middle">Same concentration, different amounts of liquid</text>
+      <g font-size="12" font-weight="800" text-anchor="middle">
+        <rect x="40" y="56" width="250" height="86" rx="14" fill="#151b36" stroke="#fac848" stroke-width="2"/>
+        <text x="165" y="88" fill="#fac848">5 mg in 1 mL</text>
+        <rect x="70" y="102" width="190" height="18" rx="9" fill="none" stroke="#3a4160" stroke-width="1.5"/>
+        <rect x="70" y="102" width="190" height="18" rx="9" fill="#fac848" opacity=".85"/>
+        <text x="165" y="132" fill="#a9b1c9" font-size="11" font-weight="600">5 mg/mL</text>
+        <rect x="350" y="56" width="250" height="86" rx="14" fill="#151b36" stroke="#5de6fb" stroke-width="2"/>
+        <text x="475" y="88" fill="#5de6fb">10 mg in 2 mL</text>
+        <rect x="380" y="102" width="190" height="18" rx="9" fill="none" stroke="#3a4160" stroke-width="1.5"/>
+        <rect x="380" y="102" width="190" height="18" rx="9" fill="#5de6fb" opacity=".85"/>
+        <text x="475" y="132" fill="#a9b1c9" font-size="11" font-weight="600">5 mg/mL</text>
+      </g>
+      <text x="320" y="172" fill="#e8af1a" font-size="16" font-weight="800" text-anchor="middle">= SAME CONCENTRATION =</text>
+      <g font-size="12" font-weight="700" text-anchor="middle">
+        <text x="320" y="202" fill="#a9b1c9">At 5 mg/mL: 0.1 mL = 0.5 mg · 0.2 mL = 1 mg · 0.4 mL = 2 mg</text>
+        <text x="320" y="224" fill="#7f88a5" font-size="11">Arithmetic, not a recommendation — and it says nothing about safety or sterility.</text>
+      </g>
+    </svg>
+    <div class="cap">Doubling both the peptide and the liquid leaves the concentration unchanged. That is why the same milligram amount can mean very different syringe volumes.</div>
+  </div>
+
+  <h3 class="subhead">Stability, sterility, and storage — the unknowns behind the math</h3>
+  <p>Correct arithmetic says nothing about what is actually in the vial. Community discussion mentions <strong>bacteriostatic water</strong> (water with a preservative, intended to slow bacterial growth in multi-use vials) — but whether a given vial was prepared sterilely, what it actually contains, and how it degrades in storage are <strong>unknown for unregulated products</strong>. Peptides can lose potency with heat, agitation, and time, and contamination does not announce itself: a clear liquid can still carry bacteria or endotoxins.</p>
+  <div class="plain reveal"><div class="plabel">Plain English</div><p>The math in this chapter is the easy part — and it is the only part that can be checked on paper. <strong>Getting the arithmetic right does not make a product safe, sterile, correctly identified, or effective.</strong> Those are four separate claims, and community reports establish none of them.</p></div>
+</section>
+<section class="chapter" id="ch8">
+  <span class="eyebrow"><span class="n">08</span>Stacking</span>
+  <h2>Mitochondrial <span class="hl">stacking</span> and interactions</h2>
+  <p class="lede"><span class="evpill ev-com">Community theories</span><span class="evpill ev-unk">No interaction data</span> “Stacking” is the community’s word for combining compounds that act on the same system through different doors. The theories are interesting. The evidence for combining them is not there — in animals or in people.</p>
+  <h3 class="subhead">Reported stacking figures</h3>
+  <p>The amounts below appear in the original reference material for a community stack. They are reported figures, not a protocol, and the combination itself has no trial behind it.</p>
+  <div class="tblwrap reveal"><table class="tbl">
+    <thead><tr><th>Compound</th><th>Amount appearing in the original reference</th></tr></thead>
+    <tbody>
+      <tr><td>MOTS-c</td><td>10 mg weekly</td></tr>
+      <tr><td>SS-31</td><td>1–2 mg daily</td></tr>
+      <tr><td>NAD+</td><td>100 mg, 3 times weekly</td></tr>
+    </tbody>
+  </table></div>
+  <h3 class="subhead">The theory behind each combination</h3>
+  <div class="grid3">
+    <div class="card sky reveal"><h3>MOTS-c + SS-31</h3><p>The theory: MOTS-c signals for metabolic adaptation while SS-31 supports the <strong>mitochondrial membrane</strong> the signal runs through. Signal plus structure. No study has tested the pair.</p></div>
+    <div class="card teal reveal"><h3>MOTS-c + NAD+</h3><p>The theory: MOTS-c switches on energy pathways while NAD+ supplies the <strong>coenzyme those pathways consume</strong>. Signal plus fuel. No study has tested the pair.</p></div>
+    <div class="card org reveal"><h3>MOTS-c + GLP-1 therapies</h3><p>The theory: GLP-1 drugs reduce appetite and weight through gut-brain signaling while MOTS-c acts on <strong>muscle metabolism</strong> — two separate levers on the same outcome. The combination is unstudied, and GLP-1 drugs are real medicines with their own risks.</p></div>
+  </div>
+  <p class="reveal">Other experimental compounds — growth-hormone-related peptides and tissue-repair peptides among them — also appear in community stacks. They are mentioned here only to note the pattern: <strong>stacks grow by analogy</strong> (“this helps mitochondria, that helps mitochondria, so both together help more”), and analogy is not pharmacology.</p>
+  <div class="warn reveal"><strong>What stacking actually adds:</strong> unknowns multiply. Each compound brings its own unknown safety profile, and their interactions are a further unknown — including whether one blunts, amplifies, or complicates the other. A stack is not “more evidence”; it is more uncertainty, stacked.</div>
+</section>
 <section class="chapter" id="ch9">
-  <span class="eyebrow"><span class="n">09</span>Who it suits</span>
-  <h2>Who it may suit &mdash; <span class="hl">and who it should not</span></h2>
+  <span class="eyebrow"><span class="n">09</span>Reactions</span>
+  <h2>Injection-site <span class="hl">reactions</span></h2>
+  <p class="lede"><span class="evpill ev-com">Community reports</span> Injection-site reactions are the most commonly reported problem with MOTS-c products — and the least precisely described. This chapter separates what people report from what can actually be concluded about it.</p>
+  <div class="grid3">
+    <div class="card sky reveal"><h3>Redness and swelling</h3><p>Diffuse redness, warmth, and mild swelling around the injection site, usually appearing within hours and fading over days. The most common report — and the least specific.</p></div>
+    <div class="card teal reveal"><h3>Welts and itching</h3><p>Raised, itchy welts at or near the site, sometimes spreading beyond it. Often described as irritation or a histamine-type response, but the mechanism is not established.</p></div>
+    <div class="card org reveal"><h3>Persistent lumps</h3><p>Defined, sometimes tender nodules that stay for weeks rather than days. These are the reports that worry clinicians most, because a persistent lump has more possible causes — and more serious ones.</p></div>
+  </div>
+  <h3 class="subhead">What might be contributing</h3>
+  <p>No single cause explains every report. The plausible contributors, in rough order of how often they are invoked:</p>
+  <div class="kv reveal"><span class="k s">Formulation properties</span><p>The liquid’s acidity, salt balance, and concentration can irritate tissue directly. A poorly formulated product can sting and inflame without anything being “wrong” with the peptide itself.</p></div>
+  <div class="kv reveal"><span class="k t">Local irritation and the depot effect</span><p>Injected material sits in a small pocket (a depot) before dispersing. If it disperses slowly, the pocket itself can inflame — redness and tenderness that track the pocket, not the bloodstream.</p></div>
+  <div class="kv reveal"><span class="k o">Immune responses</span><p>The immune system can react to the peptide, to impurities, or to aggregates (clumped peptide). Repeated exposure can sensitize, which is one reason reactions sometimes appear on later vials rather than the first.</p></div>
+  <div class="kv reveal"><span class="k s">Contamination</span><p>Bacteria or bacterial endotoxins in an unsterile product can produce redness, swelling, and pain that look identical to ordinary irritation — until they don’t. This is the contributor you cannot rule out from appearance alone.</p></div>
+    <div class="diagram reveal">
+    <svg viewBox="0 0 640 260" role="img" aria-label="Flare versus persistent lump after injection">
+      <text x="320" y="28" fill="#edf0f9" font-size="15" font-weight="800" text-anchor="middle">Two different presentations</text>
+      <g font-size="12" font-weight="800" text-anchor="middle">
+        <rect x="30" y="52" width="270" height="160" rx="14" fill="#151b36" stroke="#fac848" stroke-width="2"/>
+        <circle cx="165" cy="120" r="34" fill="none" stroke="#fac848" stroke-width="2" stroke-dasharray="6 5" class="flow"/>
+        <circle cx="165" cy="120" r="20" fill="#fac848" opacity=".28" class="mcPulse"/>
+        <circle cx="165" cy="120" r="7" fill="#fac848"/>
+        <text x="165" y="182" fill="#fac848">FLARE</text>
+        <text x="165" y="200" fill="#a9b1c9" font-size="11" font-weight="600">diffuse redness, spreads out,</text>
+        <text x="165" y="216" fill="#a9b1c9" font-size="11" font-weight="600">usually fades in days</text>
+        <rect x="340" y="52" width="270" height="160" rx="14" fill="#151b36" stroke="#5de6fb" stroke-width="2"/>
+        <circle cx="475" cy="120" r="22" fill="#5de6fb" opacity=".3"/>
+        <circle cx="475" cy="120" r="22" fill="none" stroke="#5de6fb" stroke-width="2.5"/>
+        <circle cx="475" cy="120" r="7" fill="#5de6fb" class="mcPulse"/>
+        <text x="475" y="182" fill="#5de6fb">PERSISTENT LUMP</text>
+        <text x="475" y="200" fill="#a9b1c9" font-size="11" font-weight="600">defined nodule, stays put,</text>
+        <text x="475" y="216" fill="#a9b1c9" font-size="11" font-weight="600">weeks, not days</text>
+      </g>
+      <text x="320" y="244" fill="#7f88a5" font-size="12" text-anchor="middle">Same needle, different story — which is why photos and timelines matter more than guesses.</text>
+    </svg>
+    <div class="cap">A flare spreads and fades; a lump stays defined and lingers. Either one that worsens, hardens, or comes with fever or spreading redness needs medical evaluation, not watchful waiting.</div>
+  </div>
+
+  <h3 class="subhead">Mild reaction or medical problem?</h3>
+  <div class="tblwrap reveal"><table class="tbl">
+    <thead><tr><th>Presentation</th><th>What community reports suggest</th></tr></thead>
+    <tbody>
+      <tr><td>Mild, fading redness or tenderness</td><td>Common report; typically fades within days. Still worth photographing and noting.</td></tr>
+      <tr><td>Welts or itching that spreads</td><td>Less clearly benign; spreading symptoms deserve clinical input rather than reassurance from forums.</td></tr>
+      <tr><td>A lump that persists beyond a few weeks, hardens, or grows</td><td>Needs medical evaluation. Persistent nodules have causes that cannot be distinguished by feel.</td></tr>
+      <tr><td>Spreading redness, fever, pus, or severe pain</td><td>Seek medical care promptly. These are the classic signs of infection, and infection does not wait for community consensus.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="plain reveal"><div class="plabel">Plain English</div><p>Document, don’t diagnose. Photograph the site, note the date, the product, and the timeline — and take anything that worsens, spreads, or lingers to a clinician. A reaction diary is useful evidence for a doctor; it is not a substitute for one.</p></div>
+</section>
+<section class="chapter" id="ch10">
+  <span class="eyebrow"><span class="n">10</span>Quality</span>
+  <h2>Purity, testing, and <span class="hl">product quality</span></h2>
+  <p class="lede"><span class="evpill ev-pre">Preclinical context</span><span class="evpill ev-unk">Unregulated supply</span> Everything in this guide’s evidence discussion assumes the product is what the label says. In the unregulated market, that assumption is the weakest link. Here is what testing can and cannot tell you.</p>
+    <div class="diagram reveal">
+    <svg viewBox="0 0 640 300" role="img" aria-label="What each laboratory test actually checks">
+      <text x="320" y="28" fill="#edf0f9" font-size="15" font-weight="800" text-anchor="middle">What each lab test actually checks — and what it cannot</text>
+      <g font-size="11" font-weight="800" text-anchor="middle">
+        <rect x="18" y="56" width="112" height="150" rx="14" fill="#151b36" stroke="#fac848" stroke-width="2"/>
+        <text x="74" y="88" fill="#fac848">HPLC</text>
+        <text x="74" y="108" fill="#a9b1c9" font-weight="600">purity %</text>
+        <text x="74" y="126" fill="#7f88a5" font-weight="600">not identity,</text>
+        <text x="74" y="144" fill="#7f88a5" font-weight="600">not sterility</text>
+        <rect x="142" y="56" width="112" height="150" rx="14" fill="#151b36" stroke="#5de6fb" stroke-width="2"/>
+        <text x="198" y="88" fill="#5de6fb">LC-MS</text>
+        <text x="198" y="108" fill="#a9b1c9" font-weight="600">identity +</text>
+        <text x="198" y="126" fill="#a9b1c9" font-weight="600">mass match</text>
+        <text x="198" y="144" fill="#7f88a5" font-weight="600">not sterility</text>
+        <rect x="266" y="56" width="112" height="150" rx="14" fill="#151b36" stroke="#e8af1a" stroke-width="2"/>
+        <text x="322" y="88" fill="#e8af1a">ENDOTOXIN</text>
+        <text x="322" y="108" fill="#a9b1c9" font-weight="600">bacterial</text>
+        <text x="322" y="126" fill="#a9b1c9" font-weight="600">toxin load</text>
+        <text x="322" y="144" fill="#7f88a5" font-weight="600">not identity</text>
+        <rect x="390" y="56" width="112" height="150" rx="14" fill="#151b36" stroke="#fac848" stroke-width="2"/>
+        <text x="446" y="88" fill="#fac848">STERILITY</text>
+        <text x="446" y="108" fill="#a9b1c9" font-weight="600">live microbes</text>
+        <text x="446" y="126" fill="#a9b1c9" font-weight="600">present?</text>
+        <text x="446" y="144" fill="#7f88a5" font-weight="600">not purity</text>
+        <rect x="514" y="56" width="112" height="150" rx="14" fill="#151b36" stroke="#5de6fb" stroke-width="2"/>
+        <text x="570" y="88" fill="#5de6fb">COA</text>
+        <text x="570" y="108" fill="#a9b1c9" font-weight="600">the report</text>
+        <text x="570" y="126" fill="#a9b1c9" font-weight="600">itself: real,</text>
+        <text x="570" y="144" fill="#a9b1c9" font-weight="600">matched, current?</text>
+      </g>
+      <g stroke="#7f88a5" stroke-width="2" fill="none">
+        <path d="M130 131 h12" stroke-dasharray="6 5" class="flow"/>
+        <path d="M254 131 h12" stroke-dasharray="6 5" class="flow"/>
+        <path d="M378 131 h12" stroke-dasharray="6 5" class="flow"/>
+        <path d="M502 131 h12" stroke-dasharray="6 5" class="flow"/>
+      </g>
+      <circle cx="136" cy="131" r="4" fill="#fac848" class="mcFlowS"/>
+      <circle cx="260" cy="131" r="4" fill="#5de6fb" class="mcFlowS d2"/>
+      <circle cx="384" cy="131" r="4" fill="#e8af1a" class="mcFlowS d3"/>
+      <circle cx="508" cy="131" r="4" fill="#fac848" class="mcFlowS"/>
+      <text x="320" y="240" fill="#7f88a5" font-size="12" text-anchor="middle">No single test covers everything — a “pure” result can still be unsterile, misidentified, or misreported.</text>
+      <text x="320" y="262" fill="#7f88a5" font-size="12" text-anchor="middle">And a report only means something if it traces to the batch in hand.</text>
+    </svg>
+    <div class="cap">Five tests, five different questions. Purity answers one of them. Safety needs all of them — plus a supply chain you can actually verify.</div>
+  </div>
+
+  <h3 class="subhead">Six things to check — and what each one actually establishes</h3>
+  <div class="grid3">
+    <div class="card sky reveal"><h3>HPLC — purity</h3><p>High-performance liquid chromatography separates the contents and reports a <strong>purity percentage</strong>. It answers “how much of this is one thing?” It does not confirm the thing is MOTS-c, and it says nothing about sterility.</p></div>
+    <div class="card teal reveal"><h3>LC-MS — identity</h3><p>Liquid chromatography–mass spectrometry checks the <strong>molecular mass and fingerprint</strong> against MOTS-c. It answers “is this the right molecule?” It does not measure sterility or endotoxins.</p></div>
+    <div class="card org reveal"><h3>Endotoxin testing</h3><p>Measures <strong>bacterial toxin load</strong> (the LAL test is the standard method). Endotoxins can trigger fever and inflammation even in a sterile, pure product — which is why this test is separate from sterility.</p></div>
+    <div class="card sky reveal"><h3>Sterility testing</h3><p>Cultures the product to check for <strong>living microbes</strong>. A product can be pure and correctly identified yet still contaminated; sterility is its own test, with its own result.</p></div>
+    <div class="card teal reveal"><h3>COA authenticity and traceability</h3><p>A certificate of analysis is only as good as its chain: the <strong>lab, the batch number, and the date</strong> must match the vial in hand. Reports get reused across batches, edited, or fabricated — a PDF is not a guarantee.</p></div>
+    <div class="card org reveal"><h3>Batch variability</h3><p>Even honest suppliers vary batch to batch. One good report for one batch says <strong>nothing about the next batch</strong>. Testing is per-batch or it is marketing.</p></div>
+  </div>
+  <div class="warn reveal"><strong>The sentence to remember:</strong> a high purity percentage does not guarantee that an injectable product is safe. Purity is one measurement, of one property, of one batch — and safety also needs identity, sterility, endotoxin limits, and a supply chain that can be checked.</div>
+  <div class="plain reveal"><div class="plabel">Plain English</div><p>Think of it like a restaurant inspection: a clean kitchen (purity) is good, but it doesn’t prove the food is what the menu says (identity), that nobody left the fridge open (sterility), or that last month’s inspection applies today (batch).</p></div>
+</section>
+<section class="chapter" id="ch11">
+  <span class="eyebrow"><span class="n">11</span>Safety</span>
+  <h2>Side effects and <span class="hl">safety</span></h2>
+
+  <h3 class="subhead">Risks & unknowns</h3>
+
+  <p class="lede">A metabolic rewiring signal with <strong>no human safety record</strong>, sold without oversight. The risk picture, in three honest boxes.</p>
+  <div class="safety-grid">
+    <div class="scard lvl-known reveal"><span class="level">Observed</span><h4>No human safety data</h4><p><strong>Observed fact:</strong> with zero published human trials, there is <strong>no established safety profile</strong> — no known side effects because nothing has been systematically looked for.</p></div>
+    <div class="scard lvl-known reveal"><span class="level">Observed</span><h4>Unregulated vials</h4><p><strong>Observed fact:</strong> MOTS-c sold online has no quality oversight. Gray-market peptide testing repeatedly finds <strong>impurities and mislabeled content</strong>.</p></div>
+    <div class="scard lvl-theory reveal"><span class="level">Theoretical</span><h4>Deep metabolic levers</h4><p><strong>Theoretical:</strong> MOTS-c rewires the <strong>folate–methionine cycle</strong> — core one-carbon metabolism that touches DNA synthesis. Tugging it chronically is unstudied territory.</p></div>
+    <div class="scard lvl-theory reveal"><span class="level">Theoretical</span><h4>AMPK isn’t a free lunch</h4><p><strong>Theoretical:</strong> chronic AMPK activation affects <strong>heart, appetite, and cell-growth pathways</strong>. Exercise pulses it; a drug would press it constantly — different exposure, different risks.</p></div>
+    <div class="scard lvl-unknown reveal"><span class="level">Unknown</span><h4>Long-term effects</h4><p><strong>Unknown:</strong> what months or years of mitochondrial signaling does to human metabolism is <strong>entirely uncharted</strong>.</p></div>
+    <div class="scard lvl-unknown reveal"><span class="level">Unknown</span><h4>Interactions</h4><p><strong>Unknown:</strong> no data with diabetes drugs, no data in pregnancy, no data in metabolic disease — the populations most likely to try it.</p></div>
+  </div><div class="plain reveal"><div class="plabel">Plain English</div><p>Known: <strong>no human safety data at all</strong> and <strong>unregulated vials</strong>. Theoretical: it pulls <strong>deep metabolic levers</strong> (folate cycle, AMPK) that were never meant to be held down permanently. Unknown: <strong>everything about chronic use</strong>.</p></div>
+<mini-poll slug="mots-c-mini-ch6"
+  data-question="Which unknown bothers you most?"
+  data-answers='[["🧪", "Long-term metabolic effects"], ["🏭", "What’s in the vial"], ["⚡", "Chronic AMPK activation"], ["❓", "All of it"]]'>
+</mini-poll>
+  <h3 class="subhead">Who it may suit — and who it should not</h3>
+
   <p class="lede">MOTS-c has been studied in exactly one species: <strong>mice</strong>. That makes the &ldquo;who it suits&rdquo; list unusually short &mdash; and the &ldquo;who it should not&rdquo; list unusually long.</p>
   <div class="fit-grid">
     <div class="fit fit-yes reveal">
@@ -1033,14 +1377,60 @@ mini-poll { display: block; }
     </div>
   </div>
   <div class="fit-note reveal"><p><strong>This is general information, not personal medical advice.</strong> Established indications: there are none &mdash; MOTS-c is a preclinical research molecule with zero human trials. Nothing here is a suggestion to use it.</p></div>
-</section>
 <mini-poll slug="mots-c-mini-fit"
   data-question="Who should be most cautious about MOTS-c products?"
   data-answers='[["&#x1FA78;", "People with metabolic conditions"], ["&#x23F3;", "Anyone expecting human proof"], ["&#x1F3ED;", "Gray-market vial buyers"], ["&#x26A0;", "Everyone, until trials exist"]]'>
+</mini-poll></section>
+<section class="chapter" id="ch12">
+  <span class="eyebrow"><span class="n">12</span>Monitoring</span>
+  <h2>Bloodwork and <span class="hl">monitoring</span></h2>
+  <p class="lede"><span class="evpill ev-unk">No validated protocol</span> There is no established monitoring protocol for MOTS-c — because there is no established use. What follows is what clinicians would watch if someone were using an unregulated metabolic product, and what each marker can and cannot show.</p>
+  <div class="tblwrap reveal"><table class="tbl wide">
+    <thead><tr><th>Marker</th><th>What it reflects</th><th>What it cannot show</th></tr></thead>
+    <tbody>
+      <tr><td>Fasting glucose</td><td>Day-to-day blood sugar control</td><td>Whether any change came from the product, diet, training, or chance</td></tr>
+      <tr><td>HbA1c</td><td>Average blood sugar over ~3 months</td><td>Short-term effects; it moves slowly and for many reasons</td></tr>
+      <tr><td>Fasting insulin</td><td>How hard the body works to control glucose</td><td>Insulin sensitivity directly; it is one noisy proxy among several</td></tr>
+      <tr><td>ALT / AST</td><td>Liver stress or injury signals</td><td>That a product caused a change — many things raise liver enzymes</td></tr>
+      <tr><td>Lipids (cholesterol, triglycerides)</td><td>Cardiometabolic risk profile</td><td>Whether a change is benefit, harm, or unrelated drift</td></tr>
+      <tr><td>Body composition</td><td>Fat vs lean mass, beyond scale weight</td><td>That a product built muscle or burned fat; training and diet dominate</td></tr>
+      <tr><td>Exercise performance</td><td>Endurance, strength, recovery trends</td><td>That a product caused improvement; training effects and placebo are large</td></tr>
+    </tbody>
+  </table></div>
+  <div class="warn reveal"><strong>The honest framing:</strong> tracking numbers is better than tracking feelings — but numbers without a control group still cannot attribute cause. If a marker moves, the product is one suspect among many, and the only way to know would have been a trial that does not exist.</div>
+  <div class="plain reveal"><div class="plabel">Plain English</div><p>Bloodwork can tell you whether something changed. It cannot tell you what changed it. Anyone selling certainty from a before-and-after lab panel is selling the oldest trick in the supplement book.</p></div>
+</section>
+<section class="chapter" id="ch13">
+  <span class="eyebrow"><span class="n">13</span>FAQ & glossary</span>
+  <h2>Frequently asked questions and <span class="hl">scientific glossary</span></h2>
+
+  <h3 class="subhead">Frequently asked questions</h3>
+
+  <p class="lede">Eight questions that come up again and again — answered the way this guide answers everything: with the evidence tier attached.</p>
+  <div class="gloss">
+<div class="g-item"><button class="g-q" aria-expanded="false"><span class="term">Is MOTS-c approved for any medical use?</span><span class="plus">+</span></button>
+<div class="g-a"><p>No. MOTS-c is an investigational research compound. It has no approved medical use, no published human therapeutic trial, and no regulatory approval anywhere. Anything sold as MOTS-c is an unregulated product, not a medicine.</p></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><span class="term">Does MOTS-c replace exercise?</span><span class="plus">+</span></button>
+<div class="g-a"><p>No. “Exercise-mimetic” describes mouse results: metabolic changes resembling training, produced without training. No human data shows MOTS-c replacing, matching, or even supplementing exercise outcomes. See chapter 3.</p></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><span class="term">Why do people report fat loss and energy gains?</span><span class="plus">+</span></button>
+<div class="g-a"><p>Because the outcomes people most want are also the outcomes most vulnerable to placebo, diet changes, training changes, and selective reporting. People who feel nothing rarely post; people who changed three things at once credit the newest one. Stories are not data — see chapter 5.</p></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><span class="term">Does a 99% purity result mean a product is safe to inject?</span><span class="plus">+</span></button>
+<div class="g-a"><p>No. Purity is one measurement of one batch. It does not establish identity, sterility, endotoxin limits, or that the report matches the vial in hand. See chapter 10.</p></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><span class="term">How is MOTS-c different from SS-31 and NAD+?</span><span class="plus">+</span></button>
+<div class="g-a"><p>Different doors into mitochondrial biology: SS-31 is studied for membrane and cardiolipin interactions, NAD+ is a coenzyme for redox and energy metabolism, and MOTS-c is a peptide signal for metabolic adaptation. None is proven in healthy people. See chapter 6.</p></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><span class="term">Can bloodwork prove MOTS-c is working?</span><span class="plus">+</span></button>
+<div class="g-a"><p>No. Bloodwork can show that something changed, but without a control group it cannot show what changed it. There is no validated monitoring protocol for MOTS-c. See chapter 12.</p></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><span class="term">Why are there no human trials?</span><span class="plus">+</span></button>
+<div class="g-a"><p>Partly because the research is young, partly because the commercial market ran ahead of the science: unregulated sales removed much of the incentive to run the expensive trials that would actually answer the question. Related investigational compounds (such as CB4211) are a separate story — see chapter 4.</p></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><span class="term">What would change the picture?</span><span class="plus">+</span></button>
+<div class="g-a"><p>A published, peer-reviewed human randomized trial showing a metabolic benefit with an acceptable safety profile. Until then, MOTS-c remains what it has always been: a fascinating mouse message with a human evidence file that is nearly empty.</p></div></div>
+  </div>
+<mini-poll slug="mots-c-mini-ch8"
+  data-question="Which concept was the biggest surprise?"
+  data-answers='[["🏭", "Mitochondria send messages"], ["⚡", "The AMPK switch"], ["🧬", "Hidden codes in DNA"], ["🐭", "The mouse results"]]'>
 </mini-poll>
-<section class="chapter" id="ch10">
-  <span class="eyebrow"><span class="n">10</span>Glossary</span>
-  <h2>Understanding <span class="hl">MOTS-c</span> Terminology</h2>
+  <h3 class="subhead">Scientific glossary</h3>
+
   <p class="lede">Twelve terms, each with the science and a plain-English translation. Tap any term to expand it.</p>
   <div class="gloss">
 <div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#fb984722"/><circle cx="24" cy="24" r="11" fill="none" stroke="#fac848" stroke-width="2.5"/><circle cx="24" cy="24" r="3.5" fill="#fac848"/></svg><span class="term">MOTS-c</span><span class="plus">+</span></button><div class="g-a">
@@ -1093,16 +1483,11 @@ mini-poll { display: block; }
     </div></div>
   </div>
 </section>
-<mini-poll slug="mots-c-mini-ch8"
-  data-question="Which concept was the biggest surprise?"
-  data-answers='[["🏭", "Mitochondria send messages"], ["⚡", "The AMPK switch"], ["🧬", "Hidden codes in DNA"], ["🐭", "The mouse results"]]'>
-</mini-poll>
-
-<!-- ============ CHAPTER 8 ============ -->
-<section class="chapter" id="ch11">
-  <span class="eyebrow"><span class="n">11</span>Takeaways</span>
+<section class="chapter" id="ch14">
+  <span class="eyebrow"><span class="n">14</span>Takeaways</span>
   <h2>The <span class="hl">bottom line</span></h2>
-  <p class="lede">Ten chapters, distilled. A remarkable mouse message from the mitochondria — and a human evidence file that’s completely empty.</p>
+
+  <p class="lede">Thirteen chapters, distilled. A remarkable mouse message from the mitochondria — and a human evidence file that’s completely empty.</p>
   <div class="take-grid">
     <div class="take reveal"><div class="tk">✉️</div><h4>Mail from the mitochondria</h4><p><strong>MOTS-c</strong> is a 16-amino-acid peptide encoded in mitochondrial DNA — the power plants turned out to be broadcasters. Hidden inside the 12S rRNA gene of mitochondrial DNA, its 2015 discovery rewrote what the &ldquo;powerhouse&rdquo; was supposed to be. It joined humanin as proof that mitochondria broadcast chemical messages, not just energy. That conceptual shift — from battery to broadcaster — is the most solid thing MOTS-c has going for it, because unlike the metabolic claims, the molecule&apos;s existence isn&apos;t in doubt.</p></div>
     <div class="take reveal"><div class="tk">⚡</div><h4>Flips the fuel gauge</h4><p>It activates <strong>AMPK</strong> in muscle — the same low-energy alarm exercise triggers. That’s the whole “mimetic” claim. AMPK is the cell&apos;s low-energy alarm, and exercise, fasting, and metformin all ring it through different routes. MOTS-c&apos;s proposed trick is flipping that same switch as a direct signal — which is genuinely elegant biochemistry. Elegant isn&apos;t the same as proven in people, though. Until a human trial measures it, the gauge-flip is a mouse observation wearing a human promise.</p></div>
@@ -1117,16 +1502,78 @@ mini-poll { display: block; }
   </div><div class="limits reveal">
     <h3>What this page does not do</h3>
     <ul>
-      <li><strong>No dosing or administration guidance.</strong> This page deliberately contains no instructions for obtaining, preparing, or using MOTS-c or any related product.</li>
+      <li><strong>Community dosing figures are reports, not guidance.</strong> Chapter 7 presents community-reported amounts and concentration arithmetic for education only — not instructions for obtaining, preparing, or using MOTS-c or any related product, and not a claim that any amount is safe or effective.</li>
       <li><strong>No sourcing or vendor information.</strong> Gray-market “research” vials are unregulated; this page does not help find, evaluate, or buy them.</li>
       <li><strong>No medical advice.</strong> Nothing here is a recommendation for or against any treatment. Talk to a licensed clinician about any health decision.</li>
     </ul>
   </div>
-</section>
+
+  <h3 class="subhead">Knowledge quiz</h3>
+  <p class="lede">Eight questions covering the whole guide. Pick an answer for immediate feedback — no account, no backend, nothing leaves your browser.</p>
+  <div id="quiz" class="reveal">
+    <div class="kq-q">1. Where is MOTS-c encoded?</div>
+    <div class="kq-opts">
+      <button type="button" class="kq-opt" data-ok="1">Mitochondrial DNA, inside the 12S rRNA region</button>
+      <button type="button" class="kq-opt">Nuclear DNA, alongside most other genes</button>
+      <button type="button" class="kq-opt">A bacterial plasmid carried by gut microbes</button>
+    </div>
+    <div class="kq-exp">Correct: MOTS-c is a 16-amino-acid peptide encoded in mitochondrial DNA — the discovery that made it remarkable. Nuclear DNA encodes most peptides, but not this one.</div>
+    <div class="kq-q">2. When AMPK switches on, what does the cell shift toward?</div>
+    <div class="kq-opts">
+      <button type="button" class="kq-opt">Fat storage and glucose output</button>
+      <button type="button" class="kq-opt" data-ok="1">Glucose uptake and fat oxidation</button>
+      <button type="button" class="kq-opt">Cell division and protein synthesis</button>
+    </div>
+    <div class="kq-exp">Correct: AMPK is the low-fuel alarm — it pulls glucose in and burns fat. That is the metabolic shift MOTS-c is proposed to trigger, per mouse and cell studies.</div>
+    <div class="kq-q">3. Why does the “exercise-mimetic” label overpromise?</div>
+    <div class="kq-opts">
+      <button type="button" class="kq-opt">Because athletes are banned from using it</button>
+      <button type="button" class="kq-opt" data-ok="1">Because the training-like results are mouse-only, with no human trial</button>
+      <button type="button" class="kq-opt">Because it only works during actual exercise</button>
+    </div>
+    <div class="kq-exp">Correct: the label comes from mouse endurance and metabolic results. No human performance trial exists, so “exercise in a vial” is marketing, not a finding.</div>
+    <div class="kq-q">4. Which statement about human evidence is true?</div>
+    <div class="kq-opts">
+      <button type="button" class="kq-opt">A published human trial proves MOTS-c works</button>
+      <button type="button" class="kq-opt">There is no human data of any kind</button>
+      <button type="button" class="kq-opt" data-ok="1">Observational data shows the body’s own MOTS-c rises with exercise, but no therapeutic trial exists</button>
+    </div>
+    <div class="kq-exp">Correct: the distinction matters. Endogenous MOTS-c rising during exercise is real observational biology; a trial of administered MOTS-c in people does not exist.</div>
+    <div class="kq-q">5. In the three-compound comparison, what is SS-31 studied for?</div>
+    <div class="kq-opts">
+      <button type="button" class="kq-opt">Raising NAD+ levels</button>
+      <button type="button" class="kq-opt" data-ok="1">Interactions with mitochondrial membranes and cardiolipin</button>
+      <button type="button" class="kq-opt">AMPK signaling in muscle</button>
+    </div>
+    <div class="kq-exp">Correct: SS-31 is the mechanic — membrane and cardiolipin. NAD+ is the fuel system; MOTS-c is the signaling supercharger.</div>
+    <div class="kq-q">6. What is the status of community-reported dosing protocols?</div>
+    <div class="kq-opts">
+      <button type="button" class="kq-opt">Clinically validated through dose-finding trials</button>
+      <button type="button" class="kq-opt">Standardized by regulators for research use</button>
+      <button type="button" class="kq-opt" data-ok="1">Anecdotal reports — not established as safe or effective at any amount</button>
+    </div>
+    <div class="kq-exp">Correct: community amounts are repeated anecdotes. With no human trials, no amount has been validated for safety or effectiveness.</div>
+    <div class="kq-q">7. A product reports 99% HPLC purity. What does that prove?</div>
+    <div class="kq-opts">
+      <button type="button" class="kq-opt">That it is safe to inject</button>
+      <button type="button" class="kq-opt" data-ok="1">Only that one batch is mostly one substance — not identity, sterility, or endotoxin status</button>
+      <button type="button" class="kq-opt">That the molecule is MOTS-c and the batch is sterile</button>
+    </div>
+    <div class="kq-exp">Correct: purity is one measurement. Identity needs LC-MS, sterility needs a sterility test, endotoxins need their own test — and the report must match the batch in hand.</div>
+    <div class="kq-q">8. What is the biggest safety unknown for MOTS-c?</div>
+    <div class="kq-opts">
+      <button type="button" class="kq-opt">The color of the reconstituted liquid</button>
+      <button type="button" class="kq-opt">Whether it ships cold enough</button>
+      <button type="button" class="kq-opt" data-ok="1">Long-term human safety — with zero human trials, there is no safety profile at all</button>
+    </div>
+    <div class="kq-exp">Correct: “no reported side effects” is not a safety profile when nobody has looked. Long-term human safety is entirely unknown.</div>
+    <div class="kq-score" id="kqScore" aria-live="polite"></div>
+    <button type="button" class="kq-restart" id="kqRestart" hidden>Restart quiz</button>
+  </div>
 <mini-poll slug="mots-c-mini-ch9"
   data-question="How would you rate this infographic?"
   data-answers='[["😍", "⭐⭐⭐⭐⭐ · Loved it"], ["🙂", "⭐⭐⭐⭐ · Good stuff"], ["😐", "⭐⭐⭐ · It’s okay"]]'>
-</mini-poll>
+</mini-poll></section>
 
 </main>
 
@@ -1138,7 +1585,7 @@ mini-poll { display: block; }
       <p>Online anecdotes are <strong>unverified stories</strong>, many involving unregulated gray-market products of unknown content and purity — they prove nothing about what would happen to you. <strong>Do not attempt to obtain or use unapproved substances.</strong> If you are considering any treatment, speak with a licensed clinician who can evaluate your individual situation.</p>
     </div>
     <div class="meta"><span>Compiled October 2026</span>
-      <span class="srcs"><span>Sources:</span><a href="https://www.wada-ama.org" rel="noopener">WADA Prohibited List</a></span></div>
+      <span class="srcs"><span>Sources:</span><a href="https://www.wada-ama.org" rel="noopener">WADA Prohibited List</a> · Lee et al., Cell Metabolism 2015 (PMID 25738459) · Reynolds et al., Nature Communications 2021</span></div>
   </div>
 </footer>
 
@@ -1273,7 +1720,7 @@ document.querySelectorAll('.toc a[href^="#"], nav.chapters a[href^="#"]').forEac
 var tocBar=document.getElementById("tocBar"),tocPct=document.getElementById("tocPct"),
     links=Array.prototype.slice.call(document.querySelectorAll(".toc a, nav.chapters a")),
     rail=document.getElementById("rail"),
-    sections=["ch1","ch2","ch3","ch4","ch5","ch6","ch7","ch8","ch9","ch10","ch11"].map(function(id){return document.getElementById(id);}),
+    sections=["ch1","ch2","ch3","ch4","ch5","ch6","ch7","ch8","ch9","ch10","ch11","ch12","ch13","ch14"].map(function(id){return document.getElementById(id);}),
     pill=document.querySelector(".toc-pill"),cur=-1,ticking=false;
 function easeWidth(el,v){el.style.width=v+"%";}
 function update(){
@@ -1786,5 +2233,44 @@ window.MINI_POLL_CONFIG = { supabaseUrl: "", anonKey: "", turnstileSiteKey: "",
 })();
 
 </script>
+<script>
+(function(){
+  "use strict";
+  var quiz=document.getElementById("quiz");
+  if(!quiz)return;
+  var total=quiz.querySelectorAll(".kq-opts").length,answered=0,score=0;
+  var scoreEl=document.getElementById("kqScore"),restart=document.getElementById("kqRestart");
+  quiz.querySelectorAll(".kq-opts").forEach(function(group){
+    var opts=group.querySelectorAll(".kq-opt");
+    var exp=group.nextElementSibling;
+    opts.forEach(function(btn){
+      btn.addEventListener("click",function(){
+        if(group.dataset.done)return;
+        group.dataset.done="1";answered++;
+        var ok=btn.hasAttribute("data-ok");
+        if(ok)score++;
+        opts.forEach(function(o){
+          o.disabled=true;
+          if(o.hasAttribute("data-ok"))o.classList.add("ok");
+        });
+        if(!ok)btn.classList.add("no");
+        if(exp&&exp.classList.contains("kq-exp"))exp.classList.add("show");
+        scoreEl.textContent="Score: "+score+" / "+answered+(answered===total?" — "+(score===total?"Perfect. You read the whole guide like a skeptic.":"Nice work — revisit any question you missed, the chapter links are in the sidebar."):"");
+        if(answered===total)restart.hidden=false;
+      });
+    });
+  });
+  restart.addEventListener("click",function(){
+    answered=0;score=0;scoreEl.textContent="";restart.hidden=true;
+    quiz.querySelectorAll(".kq-opts").forEach(function(group){
+      delete group.dataset.done;
+      group.querySelectorAll(".kq-opt").forEach(function(o){o.disabled=false;o.classList.remove("ok","no");});
+      var exp=group.nextElementSibling;
+      if(exp&&exp.classList.contains("kq-exp"))exp.classList.remove("show");
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
